@@ -51,8 +51,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.2.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@evilmartians/lefthook": "^1.2.2",
     "@react-native-community/eslint-config": "^3.0.2",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",
@@ -77,7 +77,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-reanimated": "^2.13.0"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -119,14 +120,21 @@
       "prettier"
     ],
     "rules": {
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          "fixStyle": "inline-type-imports"
+        }
+      ],
       "prettier/prettier": [
         "error",
         {
           "quoteProps": "consistent",
           "singleQuote": true,
           "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
+          "trailingComma": "all",
+          "useTabs": false,
+          "printWidth": 120
         }
       ]
     }
@@ -139,8 +147,9 @@
     "quoteProps": "consistent",
     "singleQuote": true,
     "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+    "trailingComma": "all",
+    "useTabs": false,
+    "printWidth": 120
   },
   "react-native-builder-bob": {
     "source": "src",

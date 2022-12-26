@@ -1,31 +1,43 @@
-import * as React from 'react';
+import React, { useCallback, useState } from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-unicorn-modals';
+import { createModalProvider, Alert, Menu } from 'react-native-unicorn-modals';
+import type { Theme } from 'react-native-unicorn-modals';
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+import Example from './components/Example';
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
-  );
+interface AdditionalProps {
+  theme: Theme;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+interface ModalProviderConf {
+  alert: {
+    buttons: any[];
+    description: string;
+    title: string;
+  };
+  menu: string;
+}
+
+const Provider = createModalProvider<ModalProviderConf, AdditionalProps>(
+  {
+    alert: Alert,
+    menu: Menu,
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+  { animationDuration: 400 },
+);
+
+const App = () => {
+  const [theme, setTheme] = useState<Theme>('dark');
+
+  const switchTheme = useCallback(() => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }, [theme]);
+
+  return (
+    <Provider theme={theme}>
+      <Example darkMode={theme === 'dark'} switchTheme={switchTheme} />
+    </Provider>
+  );
+};
+
+export default App;
