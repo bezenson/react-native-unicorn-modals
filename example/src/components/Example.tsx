@@ -4,13 +4,14 @@ import { useModals } from 'react-native-unicorn-modals';
 
 import Tile from './Tile';
 import styles from './Example.styles';
+import type { RegisteredComponents } from '../types';
 
 interface ExampleProps {
   darkMode: boolean;
   switchTheme: () => void;
 }
 const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
-  const modal = useModals();
+  const modal = useModals<RegisteredComponents>();
 
   const onOpenModalPress = () => {
     modal.show(

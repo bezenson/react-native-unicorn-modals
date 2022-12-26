@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { interpolate, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import type { Options } from '../types';
+import type { ModalProviderOptions } from '../types';
 
 export function useAlertAnimatedStyle(
   visible: boolean,
   onShowAnimationEnd: () => void,
   onHideAnimationEnd: () => void,
-  options: Options,
+  options: ModalProviderOptions,
 ) {
   const visibility = useSharedValue(0);
 

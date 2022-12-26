@@ -47,6 +47,4 @@ function WrapperComponent<D, P extends {} = {}, E = unknown>({ children, style }
   );
 }
 
-export type WrapperComponentT = typeof WrapperComponent;
-
 export default WrapperComponent;

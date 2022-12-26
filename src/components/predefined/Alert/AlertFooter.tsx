@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
-import { View } from 'react-native';
+import { type GestureResponderEvent, View } from 'react-native';
 
 import AlertButton from './AlertButton';
 import styles from './AlertFooter.styles';
-import type { AlertButtonT, Theme } from '../types';
+import type { AlertButtonT, CreateActionCallback, PredefinedSupportedThemes } from '../../../types';
 
 interface AlertFooterProps {
   buttons: AlertButtonT[];
-  createActionCallback: any;
-  theme: Theme;
+  createActionCallback: CreateActionCallback<GestureResponderEvent>;
+  theme: PredefinedSupportedThemes;
 }
 
 function splitButtons(buttons: AlertButtonT[]): [AlertButtonT[], AlertButtonT[]] {

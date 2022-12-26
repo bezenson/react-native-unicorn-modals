@@ -1,14 +1,13 @@
 import React from 'react';
 import { Text, TouchableOpacity, type TouchableOpacityProps, View } from 'react-native';
+import type { PredefinedSupportedThemes } from '../../../types';
 import { config } from '../config';
-
-import type { Theme } from '../types';
 import styles, { getTextStyle } from './MenuItem.styles';
 
 interface MenuItemProps {
   children: string;
   onPress: TouchableOpacityProps['onPress'];
-  theme: Theme;
+  theme: PredefinedSupportedThemes;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ children, onPress, theme }) => {

@@ -1,5 +1,5 @@
 import { StyleSheet, type TextStyle } from 'react-native';
-import type { Theme } from '../types';
+import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function getTitleStylesForTheme(theme: Theme): TextStyle {
+export function getTitleStylesForTheme(theme: PredefinedSupportedThemes): TextStyle {
   if (theme === 'dark') {
     return {
       color: '#fff',
@@ -30,7 +30,7 @@ export function getTitleStylesForTheme(theme: Theme): TextStyle {
   return {};
 }
 
-export function getDescriptionStylesForTheme(theme: Theme): TextStyle {
+export function getDescriptionStylesForTheme(theme: PredefinedSupportedThemes): TextStyle {
   if (theme === 'dark') {
     return {
       color: '#ddd',

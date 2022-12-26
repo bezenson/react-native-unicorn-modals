@@ -1,24 +1,18 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import type { GestureResponderEvent } from 'react-native';
+import { Text, View, type GestureResponderEvent } from 'react-native';
 
-import type { RenderableComponentProps } from '../../../types';
-import type { AddionalProps, AlertButtonT } from '../types';
+import type { AlertData, RenderableComponent, PredefinedSupportedAddionalProps } from '../../../types';
 
-import styles, { getDescriptionStylesForTheme, getTitleStylesForTheme } from './Alert.styles';
-import AlertFooter from './AlertFooter';
 import Box from '../common/Box';
 
-interface AlertData {
-  buttons: AlertButtonT[];
-  description: string;
-  title: string;
-}
+import AlertFooter from './AlertFooter';
+import styles, { getDescriptionStylesForTheme, getTitleStylesForTheme } from './Alert.styles';
 
-// TODO: Add additionalProps type
-const Alert: React.FC<RenderableComponentProps> = ({ WrapperComponent }) => {
+const Alert: RenderableComponent<AlertData, GestureResponderEvent, PredefinedSupportedAddionalProps> = ({
+  WrapperComponent,
+}) => {
   return (
-    <WrapperComponent<AlertData, AddionalProps, GestureResponderEvent> style={styles.wrapper}>
+    <WrapperComponent style={styles.wrapper}>
       {({ buttons, description, title }, createActionCallback, { theme }) => (
         <Box theme={theme}>
           <View style={styles.content}>

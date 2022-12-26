@@ -1,4 +1,4 @@
-import type { ShowComponentOptions } from '../types';
+import type { ShowRenderItemOptions } from '../types';
 import { HIDE_ANIMATION_FINISHED, SHOW_COMPONENT, START_HIDE_ANIMATION } from './action-types';
 
 // TODO: componentName type should be one of registered components
@@ -8,7 +8,7 @@ import { HIDE_ANIMATION_FINISHED, SHOW_COMPONENT, START_HIDE_ANIMATION } from '.
  * @param componentName Registered component name
  * @param data Props to pass into component
  */
-export const showComponent = (componentName: string, data: any, options?: ShowComponentOptions) => {
+export const showComponent = (componentName: any, data: any, options?: ShowRenderItemOptions) => {
   return {
     type: SHOW_COMPONENT,
     payload: {

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import type { AlertButtonVariant, Theme } from '../types';
+import type { AlertButtonVariant, PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({
   button: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function getTextStyle(theme: Theme, variant?: AlertButtonVariant) {
+export function getTextStyle(theme: PredefinedSupportedThemes, variant?: AlertButtonVariant) {
   switch (variant) {
     case 'cancel': {
       return {

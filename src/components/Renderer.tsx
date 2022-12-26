@@ -5,10 +5,11 @@ import WrapperComponent from './WrapperComponent';
 
 import { startHideAnimation } from '../state/action-creators';
 
-import type { Dispatch, RegisteredComponents, ReducerState } from '../types';
+import type { Dispatch, ReducerState } from '../types';
 
 interface RendererProps {
-  components: RegisteredComponents;
+  // TODO: Remove any
+  components: any;
   dispatch: Dispatch;
   state: ReducerState;
 }

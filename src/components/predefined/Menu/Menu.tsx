@@ -1,20 +1,15 @@
 import React, { Fragment } from 'react';
 
-import type { RenderableComponentProps } from '../../../types';
-import type { MenuItemT, AddionalProps } from '../types';
+import type { MenuData, RenderableComponent, PredefinedSupportedAddionalProps } from '../../../types';
 
 import Box from '../common/Box';
 import MenuItem from './MenuItem';
 import styles, { getSeparatorStyle } from './Menu.styles';
 import { ScrollView, View } from 'react-native';
 
-interface MenuData {
-  items: MenuItemT[];
-}
-
-const Menu: React.FC<RenderableComponentProps> = ({ WrapperComponent }) => {
+const Menu: RenderableComponent<MenuData, any, PredefinedSupportedAddionalProps> = ({ WrapperComponent }) => {
   return (
-    <WrapperComponent<MenuData, AddionalProps> style={styles.wrapper}>
+    <WrapperComponent style={styles.wrapper}>
       {({ items }, createActionCallback, { theme }) => (
         <Box style={styles.box} theme={theme}>
           <ScrollView style={styles.scrollView}>

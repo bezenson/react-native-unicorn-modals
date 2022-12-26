@@ -1,5 +1,5 @@
 import { StyleSheet, type ViewStyle } from 'react-native';
-import type { Theme } from '../types';
+import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function getSeparatorStyle(theme: Theme): ViewStyle {
+export function getSeparatorStyle(theme: PredefinedSupportedThemes): ViewStyle {
   return {
     backgroundColor: theme === 'dark' ? '#222' : '#ddd',
   };

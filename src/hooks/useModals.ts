@@ -1,20 +1,13 @@
 import { useCallback } from 'react';
 
 import { showComponent } from '../state/action-creators';
-import type { RegisteredCompnents, ShowComponentOptions } from '../types';
 import { useModalsContext } from './useModalsContext';
+import type { ShowModal, UseModalsReturn } from '../types';
 
-type Show = <K extends keyof RegisteredCompnents>(
-  type: K,
-  data: RegisteredCompnents[K],
-  options?: ShowComponentOptions,
-) => void;
-
-export function useModals(): { show: Show } {
+export function useModals<RC>(): UseModalsReturn<RC> {
   const { dispatch } = useModalsContext();
 
-  // TODO: `data` type should depend on `type` string.
-  const show = useCallback<Show>(
+  const show = useCallback<ShowModal<RC>>(
     (type, data, options) => {
       dispatch(showComponent(type, data, options));
     },

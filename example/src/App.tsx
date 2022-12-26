@@ -1,24 +1,16 @@
 import React, { useCallback, useState } from 'react';
-
-import { createModalProvider, Alert, Menu } from 'react-native-unicorn-modals';
-import type { Theme } from 'react-native-unicorn-modals';
+import {
+  createModalProvider,
+  Alert,
+  Menu,
+  type PredefinedSupportedThemes,
+  type PredefinedSupportedAddionalProps,
+} from 'react-native-unicorn-modals';
 
 import Example from './components/Example';
+import type { RegisteredComponents } from './types';
 
-interface AdditionalProps {
-  theme: Theme;
-}
-
-interface ModalProviderConf {
-  alert: {
-    buttons: any[];
-    description: string;
-    title: string;
-  };
-  menu: string;
-}
-
-const Provider = createModalProvider<ModalProviderConf, AdditionalProps>(
+const Provider = createModalProvider<RegisteredComponents, PredefinedSupportedAddionalProps>(
   {
     alert: Alert,
     menu: Menu,
@@ -27,7 +19,7 @@ const Provider = createModalProvider<ModalProviderConf, AdditionalProps>(
 );
 
 const App = () => {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<PredefinedSupportedThemes>('dark');
 
   const switchTheme = useCallback(() => {
     setTheme(theme === 'dark' ? 'light' : 'dark');

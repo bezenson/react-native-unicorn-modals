@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 import { StyleSheet, View, type ViewStyle } from 'react-native';
-import type { Theme } from '../types';
+import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({
   box: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function getBoxStylesForTheme(theme: Theme): ViewStyle {
+export function getBoxStylesForTheme(theme: PredefinedSupportedThemes): ViewStyle {
   if (theme === 'dark') {
     return {
       backgroundColor: '#111',
@@ -28,7 +28,7 @@ export function getBoxStylesForTheme(theme: Theme): ViewStyle {
 
 interface BoxProps {
   style?: ViewStyle;
-  theme: Theme;
+  theme: PredefinedSupportedThemes;
 }
 const Box: React.FC<PropsWithChildren<BoxProps>> = ({ children, style, theme }) => {
   return <View style={[styles.box, getBoxStylesForTheme(theme), style]}>{children}</View>;

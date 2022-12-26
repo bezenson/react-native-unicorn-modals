@@ -8,13 +8,13 @@ import { initialState, reducer } from './state/state';
 
 import { ModalsContext } from './context';
 
-import type { CreateModalProviderOptions, Options, RenderableComponentProps } from './types';
+import type { CreateModalProviderOptions, ModalProviderOptions, RenderableComponentProps } from './types';
 
 type ComponentsConfig<C> = {
   [key in keyof C]: React.FC<RenderableComponentProps>;
 };
 
-function mergeOptionsWithDefault(options = {}): Options {
+function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
   return {
     animationDuration: 350,
     hardwareAccelerated: true,
