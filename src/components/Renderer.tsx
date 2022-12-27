@@ -9,7 +9,9 @@ import type { Dispatch, ReducerState } from '../types';
 
 interface RendererProps {
   // TODO: Remove any
-  components: any;
+  components: {
+    [k: string]: any;
+  };
   dispatch: Dispatch;
   state: ReducerState;
 }

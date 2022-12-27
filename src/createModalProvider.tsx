@@ -8,11 +8,7 @@ import { initialState, reducer } from './state/state';
 
 import { ModalsContext } from './context';
 
-import type { CreateModalProviderOptions, ModalProviderOptions, RenderableComponentProps } from './types';
-
-type ComponentsConfig<C> = {
-  [key in keyof C]: React.FC<RenderableComponentProps>;
-};
+import type { ComponentsConfig, CreateModalProviderOptions, ModalProviderOptions } from './types';
 
 function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
   return {
@@ -35,6 +31,7 @@ export function createModalProvider<C, P extends {}>(
   const ProviderComponent: React.FC<PropsWithChildren<{}> & P> = ({ children, ...additionalProps }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    // TODO: Do something with function
     const onAlertShowAnimationEnd = useCallback(() => {}, []);
 
     const onAlertHideAnimationEnd = useCallback(() => {

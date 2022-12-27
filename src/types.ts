@@ -4,6 +4,10 @@ import type { ModalProps, ViewStyle } from 'react-native';
 
 import type * as actionCreators from './state/action-creators';
 
+export type ComponentsConfig<C> = {
+  [key in keyof C]: React.FC<RenderableComponentProps>;
+};
+
 // === createModalProvider === //
 export interface ModalProviderOptions {
   animationDuration: number;
