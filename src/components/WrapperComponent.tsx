@@ -42,6 +42,7 @@ function WrapperComponent<D, P extends {} = {}, E = unknown>({ children, style }
 
   return (
     <Animated.View style={[style, wrapperStyle]}>
+      {/* TODO: Remove any */}
       <AvoidDismiss>{children(state.renderList[0].data, actionCallback, additionalProps as any)}</AvoidDismiss>
     </Animated.View>
   );

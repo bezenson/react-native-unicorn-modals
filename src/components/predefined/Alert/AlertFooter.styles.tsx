@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
-    paddingVertical: 16,
+    paddingVertical: 8,
     paddingHorizontal: 4,
   },
   left: {

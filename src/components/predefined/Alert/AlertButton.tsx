@@ -16,7 +16,7 @@ const AlertButton: React.FC<AlertButtonProps> = ({ children, onPress, theme, var
   const textStyle = useMemo(() => getTextStyle(theme, variant), [theme, variant]);
   return (
     <TouchableOpacity activeOpacity={config.touchableActiveOpacity} onPress={onPress} style={styles.button}>
-      <Text style={[styles.text, textStyle]}>{children.toUpperCase()}</Text>
+      <Text style={[styles.text, textStyle]}>{children}</Text>
     </TouchableOpacity>
   );
 };

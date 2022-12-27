@@ -7,12 +7,14 @@ import {
   type PredefinedSupportedAddionalProps,
 } from 'react-native-unicorn-modals';
 
+import CustomModal from './components/CustomModal';
 import Example from './components/Example';
 import type { RegisteredComponents } from './types';
 
 const Provider = createModalProvider<RegisteredComponents, PredefinedSupportedAddionalProps>(
   {
     alert: Alert,
+    custom: CustomModal,
     menu: Menu,
   },
   { animationDuration: 400 },

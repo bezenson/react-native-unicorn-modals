@@ -8,10 +8,11 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 20,
     paddingTop: 16,
+    paddingBottom: 8,
   },
   title: {
     color: '#000',
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: '600',
     marginBottom: 12,
   },

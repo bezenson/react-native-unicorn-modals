@@ -6,16 +6,12 @@ const styles = StyleSheet.create({
     maxHeight: '80%',
     width: '90%',
   },
-  scrollView: {
-    // flex: 1,
-  },
   box: {
     paddingVertical: 8,
     paddingHorizontal: 16,
   },
   separator: {
     height: 1,
-    // borderBottomWidth: 1,
   },
 });
 
