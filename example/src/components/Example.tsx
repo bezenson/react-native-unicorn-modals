@@ -43,7 +43,7 @@ const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
       description: 'Menu will be shown after Alert is closed.',
       buttons: [
         { onPress: () => {}, style: 'cancel', text: 'Cancel', secondary: true },
-        { onPress: onOpenMenuPress, style: 'default', text: 'Open Menu' },
+        { onPress: onOpenMenuPress, text: 'Open Menu' },
       ],
     });
   };
