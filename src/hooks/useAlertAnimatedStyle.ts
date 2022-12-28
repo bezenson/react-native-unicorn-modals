@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { interpolate, runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { runOnJS, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import type { ModalProviderOptions } from '../types';
 
 export function useAlertAnimatedStyle(
@@ -16,12 +16,7 @@ export function useAlertAnimatedStyle(
     });
   }, [onHideAnimationEnd, onShowAnimationEnd, options.animationDuration, visible, visibility]);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: visibility.value,
-      transform: [{ translateY: interpolate(visibility.value, [0, 1], [10, 0]) }],
-    };
-  }, []);
+  const animatedStyle = useAnimatedStyle(() => options.animationWorklet(visibility.value), []);
 
   return animatedStyle;
 }

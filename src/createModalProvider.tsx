@@ -9,10 +9,12 @@ import { initialState, reducer } from './state/state';
 import { ModalsContext } from './context';
 
 import type { ComponentsConfig, CreateModalProviderOptions, ModalProviderOptions } from './types';
+import { slideUp } from './animations';
 
 function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
   return {
     animationDuration: 350,
+    animationWorklet: slideUp,
     hardwareAccelerated: true,
     ...options,
   };
@@ -28,6 +30,9 @@ export function createModalProvider<C, P extends {}>(
   componentsToRegister: ComponentsConfig<C>,
   options?: CreateModalProviderOptions,
 ) {
+  if (!componentsToRegister || !Object.keys(componentsToRegister).length) {
+    throw new Error('You should pass at least one component into `createModalProvider` function');
+  }
   const ProviderComponent: React.FC<PropsWithChildren<{}> & P> = ({ children, ...additionalProps }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 

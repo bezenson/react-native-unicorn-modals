@@ -50,7 +50,7 @@ const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
 
   const onCustomPress = () => {
     modal.show('custom', {
-      title: 'Custom title',
+      title: 'Custom modal',
     });
   };
 
@@ -61,19 +61,19 @@ const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
         <ScrollView bounces={false} contentContainerStyle={styles.scrollContent} style={styles.scroll}>
           <Text style={[styles.title, darkMode && styles.titleDark]}>React Native{'\n'}Unicorn Modals 🦄</Text>
           <View style={styles.grid}>
-            <Tile color="#48BEAF" onPress={createModalHandler()}>
+            <Tile additionalText="Default" color="#48BEAF" onPress={createModalHandler()}>
               Alert
             </Tile>
-            <Tile additionalText="non-cancellable" color="#485cbe" onPress={createModalHandler(false)}>
+            <Tile additionalText="Non-cancellable" color="#485cbe" onPress={createModalHandler(false)}>
               Alert
             </Tile>
-            <Tile color="#EC554D" onPress={onOpenMenuPress}>
+            <Tile additionalText="Simple action list" color="#EC554D" onPress={onOpenMenuPress}>
               Menu
             </Tile>
             <Tile additionalText="Menu opens by action in Alert" color="#cc4495" onPress={onAlertPlusMenuPress}>
               Alert + Menu
             </Tile>
-            <Tile color="#d89d3f" onPress={onCustomPress}>
+            <Tile additionalText="Your own component" color="#d89d3f" onPress={onCustomPress}>
               Custom
             </Tile>
           </View>

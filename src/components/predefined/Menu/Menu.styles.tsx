@@ -3,6 +3,7 @@ import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({
   wrapper: {
+    maxWidth: 500,
     maxHeight: '80%',
     width: '90%',
   },

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Text, View, type GestureResponderEvent } from 'react-native';
 
-import type { AlertData, RenderableComponent, PredefinedSupportedAddionalProps } from '../../../types';
+import type { AlertData, RenderableComponent, PredefinedSupportedProps } from '../../../types';
 
 import Box from '../common/Box';
 
 import AlertFooter from './AlertFooter';
 import styles, { getDescriptionStylesForTheme, getTitleStylesForTheme } from './Alert.styles';
 
-const Alert: RenderableComponent<AlertData, GestureResponderEvent, PredefinedSupportedAddionalProps> = ({
+const Alert: RenderableComponent<AlertData, GestureResponderEvent, PredefinedSupportedProps> = ({
   WrapperComponent,
 }) => {
   return (

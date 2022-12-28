@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type React from 'react';
 import type { ModalProps, ViewStyle } from 'react-native';
+import type { AnimatedStyleProp } from 'react-native-reanimated';
 
 import type * as actionCreators from './state/action-creators';
 
@@ -9,8 +10,22 @@ export type ComponentsConfig<C> = {
 };
 
 // === createModalProvider === //
+export type AnimationWorklet = (value: number) => AnimatedStyleProp<ViewStyle>;
+export type AnimationWorkletReturn = ReturnType<AnimationWorklet>;
+
 export interface ModalProviderOptions {
+  /**
+   * @default 350
+   */
   animationDuration: number;
+  /**
+   * @default `slideUp`
+   */
+  animationWorklet: AnimationWorklet;
+  /**
+   * Android specific option nested from React Native default Modal component.
+   * @default true
+   */
   hardwareAccelerated: ModalProps['hardwareAccelerated'];
 }
 export type CreateModalProviderOptions = Partial<ModalProviderOptions>;
@@ -90,6 +105,6 @@ export interface MenuData {
 }
 
 export type PredefinedSupportedThemes = 'dark' | 'light';
-export interface PredefinedSupportedAddionalProps {
+export interface PredefinedSupportedProps {
   theme: PredefinedSupportedThemes;
 }

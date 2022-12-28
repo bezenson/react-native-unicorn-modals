@@ -37,11 +37,17 @@
   },
   "keywords": [
     "react-native",
+    "expo",
+    "modal",
+    "popup",
+    "react",
+    "native",
     "ios",
-    "android"
+    "android",
+    "react-native-reanimated"
   ],
   "repository": "https://github.com/inferusvv/react-native-unicorn-modals",
-  "author": "Vladislav Bezenson <vladvvb@gmail.com> (https://github.com/inferusvv)",
+  "author": "Vladislav Bezenson (https://github.com/inferusvv)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/inferusvv/react-native-unicorn-modals/issues"

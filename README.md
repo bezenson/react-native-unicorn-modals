@@ -2,6 +2,10 @@
 
 Easy way to implement custom modals in your application via imperative API with TypeScript support. Alerts, Menus or anything you want.
 
+<p align="center">
+<img src=".github/images/demo.gif" height="500" />
+</p>
+
 ## Requirements
 
 This library requires you to install **react-native-reanimated v2**. [Official documentation](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation).

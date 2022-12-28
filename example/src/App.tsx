@@ -4,14 +4,14 @@ import {
   Alert,
   Menu,
   type PredefinedSupportedThemes,
-  type PredefinedSupportedAddionalProps,
+  type PredefinedSupportedProps,
 } from 'react-native-unicorn-modals';
 
 import CustomModal from './components/CustomModal';
 import Example from './components/Example';
 import type { RegisteredComponents } from './types';
 
-const Provider = createModalProvider<RegisteredComponents, PredefinedSupportedAddionalProps>(
+const Provider = createModalProvider<RegisteredComponents, PredefinedSupportedProps>(
   {
     alert: Alert,
     custom: CustomModal,
