@@ -9,7 +9,7 @@ const config = {
   title: 'React Native Unicorn Modals',
   tagline: 'Imperative API for custom modals',
   url: 'https://inferusvv.github.io',
-  baseUrl: '/',
+  baseUrl: '/react-native-unicorn-modals/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
