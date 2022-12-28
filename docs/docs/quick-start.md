@@ -4,7 +4,11 @@ sidebar_position: 2
 
 # Quick Start
 
+:::caution
+
 This library requires you to install **react-native-reanimated v2**. [Official documentation](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation).
+
+:::
 
 ## Add library into your project
 
@@ -16,18 +20,22 @@ npm install react-native-unicorn-modals
 
 ```js title=src/App.js
 // 1. Import initializer function and predefined component
+// highlight-next-line
 import { createModalProvider, Alert } from 'react-native-unicorn-modals';
 import { HomePage } from './screens/HomePage.js';
 
 // 2. Create Provider with components you need in your app
-const Provider = createModalProvider({ alert: Alert });
+// highlight-next-line
+const ModalProvider = createModalProvider({ alert: Alert });
 
-// 3. Wrap your app components with Provider
+// 3. Wrap your app components with ModalProvider
 const App = () => {
   return (
-    <Provider>
+    // highlight-next-line
+    <ModalProvider>
       <HomePage />
-    </Provider>
+    // highlight-next-line
+    </ModalProvider>
   );
 };
 
@@ -46,10 +54,12 @@ import { useModals } from 'react-native-unicorn-modals';
 
 export const HomePage = () => {
   // 2. Use hook in component
+  // highlight-next-line
   const modal = useModals();
 
   const openAlert = () => {
     // 3. Call `show` function from hook
+    // highlight-start
     modal.show(
       'alert',
       {
@@ -62,6 +72,7 @@ export const HomePage = () => {
       },
       { cancellable: false },
     );
+    // highlight-end
   };
 
   return (
