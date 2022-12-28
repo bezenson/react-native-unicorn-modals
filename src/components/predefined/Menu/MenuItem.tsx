@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, TouchableOpacity, type TouchableOpacityProps, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import type { TouchableOpacityProps } from 'react-native';
 import type { PredefinedSupportedThemes } from '../../../types';
 import { config } from '../config';
 import styles, { getTextStyle } from './MenuItem.styles';

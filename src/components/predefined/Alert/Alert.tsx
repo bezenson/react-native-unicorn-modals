@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, type GestureResponderEvent } from 'react-native';
+import { Text, View } from 'react-native';
+import type { GestureResponderEvent } from 'react-native';
 
 import type { AlertData, RenderableComponent, PredefinedSupportedProps } from '../../../types';
 

@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import { StyleSheet, View, type ViewStyle } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import type { ViewStyle } from 'react-native';
 import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({

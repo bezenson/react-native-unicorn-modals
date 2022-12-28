@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { type GestureResponderEvent, View } from 'react-native';
+import { View } from 'react-native';
+import type { GestureResponderEvent } from 'react-native';
 
 import AlertButton from './AlertButton';
 import styles from './AlertFooter.styles';

@@ -1,4 +1,5 @@
-import { StyleSheet, type ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
+import type { ViewStyle } from 'react-native';
 import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({

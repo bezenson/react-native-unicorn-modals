@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { Text, TouchableOpacity, type TouchableOpacityProps } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+import type { TouchableOpacityProps } from 'react-native';
 
 import styles, { getTextStyle } from './AlertButton.styles';
 import type { AlertButtonVariant, PredefinedSupportedThemes } from '../../../types';

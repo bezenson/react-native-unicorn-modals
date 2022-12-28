@@ -1,4 +1,6 @@
-import { StyleSheet, type TextStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
+import type { TextStyle } from 'react-native';
+
 import type { PredefinedSupportedThemes } from '../../../types';
 
 const styles = StyleSheet.create({

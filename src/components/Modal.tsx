@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import { Modal, type ModalProps, StyleSheet, TouchableOpacity } from 'react-native';
+import { Modal, StyleSheet, TouchableOpacity } from 'react-native';
+import type { ModalProps } from 'react-native';
 
 import { useModalsContext } from '../hooks/useModalsContext';
 

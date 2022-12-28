@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { type GestureResponderEvent, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import type { GestureResponderEvent } from 'react-native';
 
 import Box from '../common/Box';
 import MenuItem from './MenuItem';
