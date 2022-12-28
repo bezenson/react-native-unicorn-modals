@@ -4,4 +4,4 @@ sidebar_position: 10
 
 # Issues
 
-If you
+Found an issue? [Let me know](https://github.com/inferusvv/react-native-unicorn-modals/issues).
