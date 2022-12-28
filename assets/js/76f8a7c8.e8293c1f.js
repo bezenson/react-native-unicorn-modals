@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[761],{8488:a=>{a.exports=JSON.parse('{"label":"docusaurus","permalink":"/react-native-unicorn-modals/blog/tags/docusaurus","allTagsPath":"/react-native-unicorn-modals/blog/tags","count":1}')}}]);
