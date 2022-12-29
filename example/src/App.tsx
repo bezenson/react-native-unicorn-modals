@@ -1,34 +1,41 @@
 import React, { useCallback, useState } from 'react';
-import {
-  createModalProvider,
-  Alert,
-  Menu,
-  type PredefinedSupportedThemes,
-  type PredefinedSupportedProps,
-} from 'react-native-unicorn-modals';
+import type { AppTheme } from 'react-native-unicorn-modals';
+import { createModalProvider, Alert, Menu, defaultThemeDark, defaultThemeLight } from 'react-native-unicorn-modals';
 
 import CustomModal from './components/CustomModal';
 import Example from './components/Example';
 import type { RegisteredComponents } from './types';
 
-const Provider = createModalProvider<RegisteredComponents, PredefinedSupportedProps>(
+const lightTheme: AppTheme = {
+  ...defaultThemeLight,
+  buttonColor: '#284387',
+};
+
+const darkTheme: AppTheme = {
+  ...defaultThemeDark,
+  buttonColor: '#a537fd',
+};
+
+const Provider = createModalProvider<RegisteredComponents>(
   {
     alert: Alert,
     custom: CustomModal,
     menu: Menu,
   },
-  { animationDuration: 400 },
+  {
+    animationDuration: 400,
+  },
 );
 
 const App = () => {
-  const [theme, setTheme] = useState<PredefinedSupportedThemes>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   const switchTheme = useCallback(() => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }, [theme]);
 
   return (
-    <Provider theme={theme}>
+    <Provider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <Example darkMode={theme === 'dark'} switchTheme={switchTheme} />
     </Provider>
   );

@@ -8,8 +8,10 @@ import { initialState, reducer } from './state/state';
 
 import { ModalsContext } from './context';
 
-import type { ComponentsConfig, CreateModalProviderOptions, ModalProviderOptions } from './types';
+import type { ComponentsConfig, CreateModalProviderOptions, ModalProviderOptions, ModalProviderProps } from './types';
 import { slideUp } from './animations';
+import defaultLightTheme from './themes/default-light';
+import { ThemeContext } from './theme-context';
 
 function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
   return {
@@ -26,14 +28,17 @@ function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
  * @param options.animationDuration Show/hide animation duration
  * @returns React Provider Component
  */
-export function createModalProvider<C, P extends {}>(
+export function createModalProvider<C, P = {}>(
   componentsToRegister: ComponentsConfig<C>,
   options?: CreateModalProviderOptions,
 ) {
   if (!componentsToRegister || !Object.keys(componentsToRegister).length) {
     throw new Error('You should pass at least one component into `createModalProvider` function');
   }
-  const ProviderComponent: React.FC<PropsWithChildren<{}> & P> = ({ children, ...additionalProps }) => {
+  const ProviderComponent: React.FC<PropsWithChildren<{}> & P & ModalProviderProps> = ({
+    children,
+    theme = defaultLightTheme,
+  }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     // TODO: Do something with function
@@ -46,7 +51,6 @@ export function createModalProvider<C, P extends {}>(
     return (
       <ModalsContext.Provider
         value={{
-          additionalProps,
           dispatch,
           onAlertShowAnimationEnd,
           onAlertHideAnimationEnd,
@@ -54,8 +58,10 @@ export function createModalProvider<C, P extends {}>(
           state,
         }}
       >
-        {children}
-        <Renderer components={componentsToRegister} dispatch={dispatch} state={state} />
+        <ThemeContext.Provider value={theme}>
+          {children}
+          <Renderer components={componentsToRegister} dispatch={dispatch} state={state} />
+        </ThemeContext.Provider>
       </ModalsContext.Provider>
     );
   };

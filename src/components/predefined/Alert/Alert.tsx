@@ -2,23 +2,24 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import type { GestureResponderEvent } from 'react-native';
 
-import type { AlertData, RenderableComponent, PredefinedSupportedProps } from '../../../types';
+import type { AlertData, RenderableComponent } from '../../../types';
 
 import Box from '../common/Box';
 
 import AlertFooter from './AlertFooter';
-import styles, { getDescriptionStylesForTheme, getTitleStylesForTheme } from './Alert.styles';
+import styles from './Alert.styles';
+import { useTheme } from '../../../hooks/useTheme';
 
-const Alert: RenderableComponent<AlertData, GestureResponderEvent, PredefinedSupportedProps> = ({
-  WrapperComponent,
-}) => {
+const Alert: RenderableComponent<AlertData, GestureResponderEvent> = ({ WrapperComponent }) => {
+  const theme = useTheme();
+
   return (
     <WrapperComponent style={styles.wrapper}>
-      {({ buttons, description, title }, createActionCallback, { theme }) => (
+      {({ buttons, description, title }, createActionCallback) => (
         <Box theme={theme}>
           <View style={styles.content}>
-            <Text style={[styles.title, getTitleStylesForTheme(theme)]}>{title}</Text>
-            <Text style={[styles.description, getDescriptionStylesForTheme(theme)]}>{description}</Text>
+            <Text style={[styles.title, { color: theme.titleTextColor }]}>{title}</Text>
+            <Text style={[styles.description, { color: theme.textColor }]}>{description}</Text>
           </View>
           <AlertFooter buttons={buttons} createActionCallback={createActionCallback} theme={theme} />
         </Box>

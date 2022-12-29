@@ -9,7 +9,26 @@ export type ComponentsConfig<C> = {
   [key in keyof C]: React.FC<RenderableComponentProps>;
 };
 
+// === Themes === //
+export interface DefaultTheme {
+  actionButtonColor: {
+    cancel: string;
+    default: string;
+    destructive: string;
+  };
+  cardBackgroundColor: string;
+  lineColor: string;
+  textColor: string;
+  titleTextColor: string;
+}
+
+export type Theme<P = {}> = DefaultTheme & P;
+
 // === createModalProvider === //
+export interface ModalProviderProps {
+  theme?: DefaultTheme;
+}
+
 export type AnimationWorklet = (value: number) => AnimatedStyleProp<ViewStyle>;
 export type AnimationWorkletReturn = ReturnType<AnimationWorklet>;
 
@@ -34,17 +53,15 @@ export type CreateModalProviderOptions = Partial<ModalProviderOptions>;
 export type ActionCallback = Function | undefined;
 export type CreateActionCallback<E extends unknown = any> = (fn?: ActionCallback) => (arg: E) => void;
 
-export type WrapperComponentT<D, E, P> = React.FC<{
-  children: (data: D, createActionCallback: CreateActionCallback<E>, additionalProps: P) => ReactNode;
+export type WrapperComponentT<D, E> = React.FC<{
+  children: (data: D, createActionCallback: CreateActionCallback<E>) => ReactNode;
   style?: ViewStyle;
 }>;
 
-export interface RenderableComponentProps<D = any, E extends unknown = any, P extends {} = any> {
-  WrapperComponent: WrapperComponentT<D, E, P>;
+export interface RenderableComponentProps<D = any, E extends unknown = any> {
+  WrapperComponent: WrapperComponentT<D, E>;
 }
-export type RenderableComponent<D = any, E extends {} = any, P extends {} = any> = React.FC<
-  RenderableComponentProps<D, E, P>
->;
+export type RenderableComponent<D = any, E extends {} = any> = React.FC<RenderableComponentProps<D, E>>;
 
 // === State === //
 export type ActionsType = ReturnType<typeof actionCreators[keyof typeof actionCreators]>;
@@ -65,8 +82,6 @@ export interface ReducerState {
 }
 
 export interface ContextType {
-  // TODO: additionalProps
-  additionalProps: unknown;
   dispatch: Dispatch;
   onAlertShowAnimationEnd: () => void;
   onAlertHideAnimationEnd: () => void;
@@ -81,12 +96,13 @@ export interface UseModalsReturn<RC> {
 }
 
 // === Predefined components === //
+export type ActionButtonVariant = 'default' | 'destructive' | 'cancel';
+
 // Alert
-export type AlertButtonVariant = 'default' | 'destructive' | 'cancel';
 export interface AlertButtonT {
   onPress?: () => void;
   secondary?: boolean;
-  style?: AlertButtonVariant;
+  variant?: ActionButtonVariant;
   text: string;
 }
 export interface AlertData {
@@ -98,13 +114,9 @@ export interface AlertData {
 // Menu
 export interface MenuItemT {
   onPress?: () => void;
+  variant?: ActionButtonVariant;
   text: string;
 }
 export interface MenuData {
   items: MenuItemT[];
-}
-
-export type PredefinedSupportedThemes = 'dark' | 'light';
-export interface PredefinedSupportedProps {
-  theme: PredefinedSupportedThemes;
 }

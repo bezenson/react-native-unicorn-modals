@@ -33,6 +33,7 @@
     "prepack": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
+    "docs": "yarn --cwd docs",
     "bootstrap": "yarn example && yarn install"
   },
   "keywords": [
@@ -148,7 +149,9 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/"
+    "lib/",
+    "docs/.docusaurus",
+    "docs/build/"
   ],
   "prettier": {
     "quoteProps": "consistent",

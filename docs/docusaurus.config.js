@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Native Unicorn Modals',
-  tagline: 'Imperative API for custom modals',
+  tagline: 'Custom modals with Imperative API',
   url: 'https://inferusvv.github.io',
   baseUrl: '/react-native-unicorn-modals/',
   onBrokenLinks: 'throw',

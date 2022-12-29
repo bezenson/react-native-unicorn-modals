@@ -1,6 +1,9 @@
-# react-native-unicorn-modals
+<h1 align="center">React Native Unicorn Modals 🦄</h1>
 
 Easy way to implement custom modals in your application via imperative API with TypeScript support. Alerts, Menus or anything you want.
+
+> **Warning**
+> This library is under development now. API can change.
 
 <p align="center">
 <img src=".github/images/demo.gif" height="500" />
@@ -41,8 +44,16 @@ const MyScreen = () => {
     title: 'Title',
     description: 'Description goes here.',
     buttons: [
-      { onPress: () => { console.log('Confirm pressed') }, style: 'cancel', text: 'Cancel', secondary: true },
-      { onPress: () => { console.log('Confirm pressed') }, style: 'default', text: 'Confirm' },
+      {
+        onPress: () => console.log('Confirm pressed'),
+        secondary: true,
+        text: 'Cancel',
+        variant: 'cancel',
+      },
+      {
+        onPress: () => console.log('Confirm pressed'),
+        text: 'Confirm'
+      },
     ],
   });
 

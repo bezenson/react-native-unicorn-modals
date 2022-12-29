@@ -21,9 +21,9 @@ const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
           title: 'Hello',
           description: 'Are you sure you want to use this awesome library?',
           buttons: [
-            { onPress: () => {}, style: 'cancel', text: 'Cancel', secondary: true },
-            { onPress: () => {}, style: 'destructive', text: 'No' },
-            { onPress: () => {}, style: 'default', text: 'Yes' },
+            { onPress: () => {}, variant: 'cancel', text: 'Cancel', secondary: true },
+            { onPress: () => {}, variant: 'destructive', text: 'No' },
+            { onPress: () => {}, text: 'Yes' },
           ],
         },
         { cancelable: cancelable },
@@ -42,7 +42,7 @@ const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
       title: 'Show menu?',
       description: 'Menu will be shown after Alert is closed.',
       buttons: [
-        { onPress: () => {}, style: 'cancel', text: 'Cancel', secondary: true },
+        { onPress: () => {}, variant: 'cancel', text: 'Cancel', secondary: true },
         { onPress: onOpenMenuPress, text: 'Open Menu' },
       ],
     });

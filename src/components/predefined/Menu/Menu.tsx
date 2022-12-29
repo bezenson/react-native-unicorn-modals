@@ -4,22 +4,24 @@ import type { GestureResponderEvent } from 'react-native';
 
 import Box from '../common/Box';
 import MenuItem from './MenuItem';
-import styles, { getSeparatorStyle } from './Menu.styles';
+import styles from './Menu.styles';
 
-import type { MenuData, RenderableComponent, PredefinedSupportedProps } from '../../../types';
+import type { MenuData, RenderableComponent } from '../../../types';
+import { useTheme } from '../../../hooks/useTheme';
 
-const Menu: RenderableComponent<MenuData, GestureResponderEvent, PredefinedSupportedProps> = ({ WrapperComponent }) => {
+const Menu: RenderableComponent<MenuData, GestureResponderEvent> = ({ WrapperComponent }) => {
+  const theme = useTheme();
   return (
     <WrapperComponent style={styles.wrapper}>
-      {({ items }, createActionCallback, { theme }) => (
+      {({ items }, createActionCallback) => (
         <Box style={styles.box} theme={theme}>
           <ScrollView showsVerticalScrollIndicator={false}>
             {items.map((item, index) => (
               <Fragment key={item.text}>
-                <MenuItem key={item.text} onPress={createActionCallback()} theme={theme}>
+                <MenuItem key={item.text} onPress={createActionCallback()} theme={theme} variant={item.variant}>
                   {item.text}
                 </MenuItem>
-                {index + 1 < items.length && <View style={[styles.separator, getSeparatorStyle(theme)]} />}
+                {index + 1 < items.length && <View style={[styles.separator, { backgroundColor: theme.lineColor }]} />}
               </Fragment>
             ))}
           </ScrollView>

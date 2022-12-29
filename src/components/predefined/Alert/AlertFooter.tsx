@@ -4,12 +4,12 @@ import type { GestureResponderEvent } from 'react-native';
 
 import AlertButton from './AlertButton';
 import styles from './AlertFooter.styles';
-import type { AlertButtonT, CreateActionCallback, PredefinedSupportedThemes } from '../../../types';
+import type { AlertButtonT, CreateActionCallback, DefaultTheme } from '../../../types';
 
 interface AlertFooterProps {
   buttons: AlertButtonT[];
   createActionCallback: CreateActionCallback<GestureResponderEvent>;
-  theme: PredefinedSupportedThemes;
+  theme: DefaultTheme;
 }
 
 function splitButtons(buttons: AlertButtonT[]): [AlertButtonT[], AlertButtonT[]] {
@@ -23,7 +23,12 @@ const AlertFooter: React.FC<AlertFooterProps> = ({ buttons, createActionCallback
   const [left, right] = useMemo(() => splitButtons(buttons), [buttons]);
 
   const renderButton = (button: AlertButtonT) => (
-    <AlertButton key={button.text} onPress={createActionCallback(button.onPress)} theme={theme} variant={button.style}>
+    <AlertButton
+      key={button.text}
+      onPress={createActionCallback(button.onPress)}
+      theme={theme}
+      variant={button.variant}
+    >
       {button.text}
     </AlertButton>
   );
