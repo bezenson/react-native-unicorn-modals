@@ -10,14 +10,13 @@ import { startHideAnimation } from '../state/action-creators';
 import AvoidDismiss from './AvoidDismiss';
 import type { CreateActionCallback } from '../types';
 
-export interface WrapperComponentProps<D extends unknown, P, E extends unknown> {
-  children: (data: D, createActionCallback: CreateActionCallback<E>, additionalProps: P) => ReactNode;
+export interface WrapperComponentProps<D extends unknown, E extends unknown> {
+  children: (data: D, createActionCallback: CreateActionCallback<E>) => ReactNode;
   style?: ViewStyle;
 }
 
-function WrapperComponent<D, P extends {} = {}, E = unknown>({ children, style }: WrapperComponentProps<D, P, E>) {
-  const { additionalProps, dispatch, onAlertHideAnimationEnd, onAlertShowAnimationEnd, options, state } =
-    useModalsContext();
+function WrapperComponent<D, E = unknown>({ children, style }: WrapperComponentProps<D, E>) {
+  const { dispatch, onAlertHideAnimationEnd, onAlertShowAnimationEnd, options, state } = useModalsContext();
 
   const wrapperStyle = useAlertAnimatedStyle(
     !!state.renderList[0]?.visible,
@@ -42,8 +41,7 @@ function WrapperComponent<D, P extends {} = {}, E = unknown>({ children, style }
 
   return (
     <Animated.View style={[style, wrapperStyle]}>
-      {/* TODO: Remove any */}
-      <AvoidDismiss>{children(state.renderList[0].data, actionCallback, additionalProps as any)}</AvoidDismiss>
+      <AvoidDismiss>{children(state.renderList[0].data, actionCallback)}</AvoidDismiss>
     </Animated.View>
   );
 }

@@ -1,1 +1,3 @@
 # createModalProvider
+
+Returns [ModalProvider](./ModalProvider)

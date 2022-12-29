@@ -2,11 +2,11 @@ import type { PropsWithChildren } from 'react';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import type { ViewStyle } from 'react-native';
-import type { PredefinedSupportedThemes } from '../../../types';
+
+import type { DefaultTheme } from '../../../types';
 
 const styles = StyleSheet.create({
   box: {
-    backgroundColor: '#eee',
     borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: {
@@ -18,21 +18,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export function getBoxStylesForTheme(theme: PredefinedSupportedThemes): ViewStyle {
-  if (theme === 'dark') {
-    return {
-      backgroundColor: '#111',
-    };
-  }
-  return {};
-}
-
 interface BoxProps {
   style?: ViewStyle;
-  theme: PredefinedSupportedThemes;
+  theme: DefaultTheme;
 }
 const Box: React.FC<PropsWithChildren<BoxProps>> = ({ children, style, theme }) => {
-  return <View style={[styles.box, getBoxStylesForTheme(theme), style]}>{children}</View>;
+  return <View style={[styles.box, { backgroundColor: theme.cardBackgroundColor }, style]}>{children}</View>;
 };
 
 export default Box;

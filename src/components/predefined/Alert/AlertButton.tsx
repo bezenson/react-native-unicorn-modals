@@ -1,23 +1,22 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import type { TouchableOpacityProps } from 'react-native';
 
-import styles, { getTextStyle } from './AlertButton.styles';
-import type { AlertButtonVariant, PredefinedSupportedThemes } from '../../../types';
+import styles from './AlertButton.styles';
+import type { ActionButtonVariant, DefaultTheme } from '../../../types';
 import { config } from '../config';
 
 interface AlertButtonProps {
   children: string;
   onPress: TouchableOpacityProps['onPress'];
-  theme: PredefinedSupportedThemes;
-  variant?: AlertButtonVariant;
+  theme: DefaultTheme;
+  variant?: ActionButtonVariant;
 }
 
-const AlertButton: React.FC<AlertButtonProps> = ({ children, onPress, theme, variant }) => {
-  const textStyle = useMemo(() => getTextStyle(theme, variant), [theme, variant]);
+const AlertButton: React.FC<AlertButtonProps> = ({ children, onPress, theme, variant = 'default' }) => {
   return (
     <TouchableOpacity activeOpacity={config.touchableActiveOpacity} onPress={onPress} style={styles.button}>
-      <Text style={[styles.text, textStyle]}>{children}</Text>
+      <Text style={[styles.text, { color: theme.actionButtonColor[variant] }]}>{children}</Text>
     </TouchableOpacity>
   );
 };

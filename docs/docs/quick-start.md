@@ -5,18 +5,18 @@ sidebar_position: 2
 # Quick Start
 
 :::caution
-
 This library requires you to install **react-native-reanimated v2**. [Official documentation](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation).
-
 :::
 
-## Add library into your project
+Only 3 simple steps to get started!
+
+## 1. Add library into your project
 
 ```sh npm2yarn
 npm install react-native-unicorn-modals
 ```
 
-## Add Provider into root component
+## 2. Add Provider into root component
 
 ```js title=src/App.js
 // 1. Import initializer function and predefined component
@@ -44,7 +44,7 @@ export default App;
 
 Now you are ready to open `Alert` somewhere in your application!
 
-## Open Alert
+## 3. Open Alert
 
 Let's create a component with button which will open an Alert:
 
