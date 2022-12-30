@@ -19,7 +19,9 @@ const ModalOverlay: React.FC = () => {
   const hidden = state.renderList.length <= 1 && state.renderList[0]?.visible === false;
 
   useEffect(() => {
-    overlayOpacity.value = withTiming(hidden ? 0 : 1, { duration: options.animationDuration });
+    const toValue = hidden ? 1 : 0;
+
+    overlayOpacity.value = withTiming(toValue, { duration: options.animationDuration });
   }, [options.animationDuration, overlayOpacity, hidden]);
 
   const overlayStyle = useAnimatedStyle(() => {

@@ -6,7 +6,7 @@ import Animated from 'react-native-reanimated';
 
 import { useAlertAnimatedStyle } from '../hooks/useAlertAnimatedStyle';
 import { useModalsContext } from '../hooks/useModalsContext';
-import { startHideAnimation } from '../state/action-creators';
+import { hideAnimationStart } from '../state/action-creators';
 import AvoidDismiss from './AvoidDismiss';
 import type { CreateActionCallback } from '../types';
 
@@ -27,7 +27,7 @@ function WrapperComponent<D, E = unknown>({ children, style }: WrapperComponentP
 
   const actionCallback = useCallback<CreateActionCallback<E>>(
     (fn) => () => {
-      dispatch(startHideAnimation());
+      dispatch(hideAnimationStart());
       if (fn) {
         fn();
       }
