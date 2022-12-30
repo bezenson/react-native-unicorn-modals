@@ -4,4 +4,10 @@ sidebar_position: 1
 
 # Introduction
 
-Some words about library concepts
+:::caution
+This library is under development now. API can change.
+:::
+
+<p align="center">
+<img src="img/demo.gif" height="500" />
+</p>

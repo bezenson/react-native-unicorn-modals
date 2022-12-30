@@ -106,6 +106,23 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: { start: 'highlight-start', end: 'highlight-end' },
+          },
+          {
+            className: 'code-block-removed-line',
+            line: 'remove-next-line',
+            block: { start: 'remove-start', end: 'remove-end' },
+          },
+          {
+            className: 'code-block-added-line',
+            line: 'add-next-line',
+            block: { start: 'add-start', end: 'add-end' },
+          },
+        ],
       },
     }),
 };

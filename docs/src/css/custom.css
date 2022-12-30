@@ -25,3 +25,37 @@
 .footer--dark {
   --ifm-footer-background-color: #242526;
 }
+
+.code-block-removed-line,
+.code-block-added-line {
+  border-left: 3px solid;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  position: relative;
+}
+
+.code-block-removed-line::before,
+.code-block-added-line::before {
+  content: '-';
+  position: absolute;
+  left: 4px;
+}
+
+.code-block-removed-line {
+  background-color: #ff000020;
+  border-left-color: #ff000080;
+}
+.code-block-removed-line::before {
+  content: '-';
+  color: #ff0000;
+}
+
+.code-block-added-line {
+  background-color: #00ff0020;
+  border-left-color: #00ff0080;
+}
+.code-block-added-line::before {
+  content: '+';
+  color: #00ff00;
+}
