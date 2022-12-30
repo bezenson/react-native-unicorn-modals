@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import Modal from './Modal';
 import WrapperComponent from './WrapperComponent';
 
-import { startHideAnimation } from '../state/action-creators';
+import { hideAnimationStart } from '../state/action-creators';
 
 import type { Dispatch, ReducerState } from '../types';
 
@@ -20,7 +20,7 @@ const Renderer: React.FC<RendererProps> = ({ components, dispatch, state }) => {
 
   const onDismiss = useCallback(() => {
     if (firstRenderItem?.options.cancelable) {
-      dispatch(startHideAnimation());
+      dispatch(hideAnimationStart());
     }
   }, [dispatch, firstRenderItem]);
 

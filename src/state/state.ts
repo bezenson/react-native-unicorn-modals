@@ -1,5 +1,5 @@
-import type { RenderItemOptions, ActionsType, ReducerState } from '../types';
-import { HIDE_ANIMATION_FINISHED, SHOW_COMPONENT, START_HIDE_ANIMATION } from './action-types';
+import type { ActionsType, ReducerState, RenderItemOptions } from '../types';
+import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_COMPONENT } from './action-types';
 
 export const initialState: ReducerState = {
   renderList: [],
@@ -29,7 +29,7 @@ export function reducer(state: ReducerState, action: ActionsType): ReducerState 
       };
     }
 
-    case START_HIDE_ANIMATION: {
+    case HIDE_ANIMATION_START: {
       return {
         ...state,
         renderList: state.renderList.map((item, index) => {

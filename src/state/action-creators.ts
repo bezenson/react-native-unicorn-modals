@@ -1,5 +1,5 @@
 import type { ShowRenderItemOptions } from '../types';
-import { HIDE_ANIMATION_FINISHED, SHOW_COMPONENT, START_HIDE_ANIMATION } from './action-types';
+import { HIDE_ANIMATION_FINISHED, SHOW_COMPONENT, HIDE_ANIMATION_START } from './action-types';
 
 // TODO: componentName type should be one of registered components
 // TODO: data should equal to registered component props type
@@ -22,8 +22,8 @@ export const showComponent = (componentName: any, data: any, options?: ShowRende
 /**
  * Current visible component will start to hide.
  */
-export const startHideAnimation = () => {
-  return { type: START_HIDE_ANIMATION };
+export const hideAnimationStart = () => {
+  return { type: HIDE_ANIMATION_START };
 };
 
 /**

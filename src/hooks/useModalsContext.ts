@@ -7,7 +7,7 @@ export function useModalsContext() {
 
   if (!context) {
     throw new Error(
-      '`useModalsContext` must be used insde a `ModalsContext.Provder. Have you wrapped your app with Provider, created via `createModalProvider`?',
+      '`useModalsContext` must be used inside a `ModalsContext.Provider. Have you wrapped your app with Provider, created via `createModalProvider`?',
     );
   }
 
