@@ -84,8 +84,6 @@ export interface ReducerState {
 
 export interface ContextType {
   dispatch: Dispatch;
-  onAlertShowAnimationEnd: () => void;
-  onAlertHideAnimationEnd: () => void;
   options: ModalProviderOptions;
   state: ReducerState;
 }

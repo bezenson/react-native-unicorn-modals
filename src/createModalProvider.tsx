@@ -1,9 +1,8 @@
+import React, { useMemo, useReducer } from 'react';
 import type { PropsWithChildren } from 'react';
-import React, { useCallback, useReducer } from 'react';
 
 import Renderer from './components/Renderer';
 
-import { hideAnimationFinished } from './state/action-creators';
 import { initialState, reducer } from './state/state';
 
 import { ModalsContext } from './context';
@@ -49,24 +48,10 @@ export function createModalProvider<C extends RegisteredComponents>(
     theme = defaultLightTheme,
   }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
-    // TODO: Do something with function
-    const onAlertShowAnimationEnd = useCallback(() => {}, []);
-
-    const onAlertHideAnimationEnd = useCallback(() => {
-      dispatch(hideAnimationFinished());
-    }, [dispatch]);
+    const optionsWithDefault = useMemo(() => mergeOptionsWithDefault(options), []);
 
     return (
-      <ModalsContext.Provider
-        value={{
-          dispatch,
-          onAlertShowAnimationEnd,
-          onAlertHideAnimationEnd,
-          options: mergeOptionsWithDefault(options),
-          state,
-        }}
-      >
+      <ModalsContext.Provider value={{ dispatch, options: optionsWithDefault, state }}>
         <ThemeContext.Provider value={theme}>
           {children}
           <Renderer components={componentsToRegister} dispatch={dispatch} state={state} />

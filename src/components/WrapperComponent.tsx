@@ -6,7 +6,7 @@ import Animated from 'react-native-reanimated';
 
 import { useAlertAnimatedStyle } from '../hooks/useAlertAnimatedStyle';
 import { useModalsContext } from '../hooks/useModalsContext';
-import { hideAnimationStart } from '../state/action-creators';
+import { hideAnimationFinished, hideAnimationStart } from '../state/action-creators';
 import AvoidDismiss from './AvoidDismiss';
 import type { CreateActionCallback } from '../types';
 
@@ -16,13 +16,10 @@ export interface WrapperComponentProps<D extends unknown, E extends unknown> {
 }
 
 function WrapperComponent<D, E = unknown>({ children, style }: WrapperComponentProps<D, E>) {
-  const { dispatch, onAlertHideAnimationEnd, onAlertShowAnimationEnd, options, state } = useModalsContext();
+  const { dispatch, options, state } = useModalsContext();
 
-  const wrapperStyle = useAlertAnimatedStyle(
-    !!state.renderList[0]?.visible,
-    onAlertShowAnimationEnd,
-    onAlertHideAnimationEnd,
-    options,
+  const wrapperStyle = useAlertAnimatedStyle(!!state.renderList[0]?.visible, options, () =>
+    dispatch(hideAnimationFinished()),
   );
 
   const actionCallback = useCallback<CreateActionCallback<E>>(
