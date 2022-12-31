@@ -1,9 +1,5 @@
 # `useModals`
 
-:::info
-Page not finished yet.
-:::
-
 ## Example
 
 ```js
@@ -11,11 +7,14 @@ const Example = () => {
   const modal = useModals();
 
   const onPress = () => {
-    modal.show('alert', {
+    const componentName = 'alert';
+    const data = {
       title: 'Title',
       description: 'Description',
       buttons: [{ onPress: () => {}, text: 'Ok' }],
-    }, { cancelable: false });
+    }
+    const options = { cancelable: false };
+    modal.show(componentName, data, options);
   };
 
   return (
@@ -27,3 +26,32 @@ const Example = () => {
 
 export default Example;
 ```
+
+## `show`
+
+This function is a part of object, returned by `useModals` hook. Use it to show modal in your app. It accepts 3 arguments.
+
+### `componentName`
+
+After you registered a component in `createModalProvider`, you are able to show it. `componentName` is a key from registered component object.
+
+```js
+createModalProvider({
+  alert: Alert,
+  someComponent: YourCustomComponent,
+});
+
+const modal = useModals();
+modal.show('alert', /* ... */);
+modal.show('someComponent', /* ... */);
+```
+
+### `data`
+
+Data is an object. But it can be different and depends on object you are showing.
+
+### `options`
+
+| Options | Type | Default | Description |
+| --- | --- | --- | --- |
+| **cancelable** | `boolean` | `true` | Defines if alert can be dismissed by tapping outside of the alert box or pressing Back button (Android). |

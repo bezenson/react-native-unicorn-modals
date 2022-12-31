@@ -1,8 +1,6 @@
 ---
 sidebar_position: 1
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Themes
 
@@ -34,9 +32,7 @@ import {
   // highlight-end
 } from 'react-native-unicorn-modals';
 
-const ModalProvider = createModalProvider({
-  alert: Alert,
-});
+const ModalProvider = createModalProvider({ alert: Alert });
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -50,7 +46,7 @@ const App = () => {
     // 2. Pass theme object into provider component as prop
     // highlight-next-line
     <ModalProvider theme={theme === 'dark' ? defaultThemeDark : defaultThemeLight}>
-      {/* <YourAppComponent /> */}
+      {/* <YourAppComponent switchTheme={switchTheme} /> */}
     </ModalProvider>
   );
 };

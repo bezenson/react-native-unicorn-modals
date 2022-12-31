@@ -1,9 +1,10 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
-# Typescript
+# TypeScript
 
+<!-- TODO: Finish page -->
 :::info
 This page not finished yet. For now please see [example app in repo](https://github.com/inferusvv/react-native-unicorn-modals/tree/main/example).
 :::
