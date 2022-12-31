@@ -1,5 +1,5 @@
 import 'react-native-unicorn-modals';
-import type { Theme } from 'react-native-unicorn-modals';
+import type { AlertData, MenuData, Theme } from 'react-native-unicorn-modals';
 
 declare module 'react-native-unicorn-modals' {
   export interface AppTheme extends Theme {
@@ -7,4 +7,14 @@ declare module 'react-native-unicorn-modals' {
     buttonColor: string;
   }
   export function useTheme(): AppTheme;
+
+  export interface CustomModalData {
+    title: string;
+  }
+
+  export interface RegisteredComponents {
+    alert: AlertData;
+    custom: CustomModalData;
+    menu: MenuData;
+  }
 }

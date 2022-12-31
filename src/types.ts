@@ -5,10 +5,6 @@ import type { AnimatedStyleProp } from 'react-native-reanimated';
 
 import type * as actionCreators from './state/action-creators';
 
-export type ComponentsConfig<C> = {
-  [key in keyof C]: React.FC<RenderableComponentProps>;
-};
-
 // === Themes === //
 export interface DefaultTheme {
   actionButtonColor: {
@@ -63,6 +59,10 @@ export interface RenderableComponentProps<D = any, E extends unknown = any> {
 }
 export type RenderableComponent<D = any, E extends {} = any> = React.FC<RenderableComponentProps<D, E>>;
 
+export type ComponentsConfig<C extends RegisteredComponents = RegisteredComponents> = {
+  [key in keyof C]: React.FC<RenderableComponentProps>;
+};
+
 // === State === //
 export type ActionsType = ReturnType<typeof actionCreators[keyof typeof actionCreators]>;
 export type Dispatch = React.Dispatch<ActionsType>;
@@ -91,8 +91,14 @@ export interface ContextType {
 }
 
 // === Hooks === //
-export type ShowModal<RC> = <K extends keyof RC>(type: K, data: RC[K], options?: ShowRenderItemOptions) => void;
-export interface UseModalsReturn<RC> {
+export interface RegisteredComponents {}
+
+export type ShowModal<RC extends RegisteredComponents> = <K extends keyof RC>(
+  componentName: K,
+  data: RC[K],
+  options?: ShowRenderItemOptions,
+) => void;
+export interface UseModalsReturn<RC extends RegisteredComponents> {
   show: ShowModal<RC>;
 }
 

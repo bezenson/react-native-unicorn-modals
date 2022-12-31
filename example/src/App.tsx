@@ -4,7 +4,6 @@ import { createModalProvider, Alert, Menu, defaultThemeDark, defaultThemeLight }
 
 import CustomModal from './components/CustomModal';
 import Example from './components/Example';
-import type { RegisteredComponents } from './types';
 
 const lightTheme: AppTheme = {
   ...defaultThemeLight,
@@ -16,7 +15,7 @@ const darkTheme: AppTheme = {
   buttonColor: '#a537fd',
 };
 
-const Provider = createModalProvider<RegisteredComponents>(
+const Provider = createModalProvider(
   {
     alert: Alert,
     custom: CustomModal,

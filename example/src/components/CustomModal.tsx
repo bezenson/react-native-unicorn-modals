@@ -1,10 +1,9 @@
 import React from 'react';
 import { Button, Text, View } from 'react-native';
-import type { RenderableComponent } from 'react-native-unicorn-modals';
+import type { CustomModalData, RenderableComponent } from 'react-native-unicorn-modals';
 import { useTheme } from 'react-native-unicorn-modals';
 
 import styles from './CustomModal.styles';
-import type { CustomModalData } from '../types';
 
 const CustomModal: RenderableComponent<CustomModalData> = ({ WrapperComponent }) => {
   const theme = useTheme();
