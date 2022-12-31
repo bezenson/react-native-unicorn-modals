@@ -12,10 +12,8 @@ export function useAlertAnimatedStyle(
 
   useEffect(() => {
     const toValue = visible ? 1 : 0;
-
     visibility.value = withTiming(toValue, { duration: options.animationDuration }, () => {
       const value = visibility.value ? onShowAnimationEnd : onHideAnimationEnd;
-
       runOnJS(value)();
     });
   }, [onHideAnimationEnd, onShowAnimationEnd, options.animationDuration, visible, visibility]);
