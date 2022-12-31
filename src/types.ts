@@ -71,6 +71,7 @@ export interface RenderItemOptions {
   cancelable: boolean;
 }
 export type ShowRenderItemOptions = Partial<RenderItemOptions>;
+// TODO: Fix any
 export interface RenderItem<T = any> {
   componentName: string;
   data: T;
