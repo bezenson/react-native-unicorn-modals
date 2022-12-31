@@ -77,3 +77,7 @@ const Example = () => {
 
 export default Example;
 ```
+
+**Result:**
+
+![Custom Component](../../static/img/custom-modal.gif)
