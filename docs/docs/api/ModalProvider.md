@@ -16,24 +16,6 @@ const ModalProvider = createModalProvider({ /* ... */ });
 <ModalProvider theme={{ /* theme */ }}>{/* ... */}</ModalProvider>
 ```
 
-| Property | Type | Description |
-| --- | --- | --- |
-| **actionButtonColor** | Object<[ActionButtonColor](#ActionButtonColor)> |  |
-| **cardBackgroundColor** | `string` | Background color of wrapper block |
-| **lineColor** | `string` | Menu separator |
-| **textColor** | `string` | Text color (e.g. description in alert) |
-| **titleTextColor** | `string` | Alert title color |
-
-#### <a name="ActionButtonColor"></a> `ActionButtonColor`
-
-Colors for different button variants.
-
-| Property | Type |
-| --- | --- |
-| **cancel** | `string` |
-| **default** | `string` |
-| **destructive** | `string` |
-
-:::note
-All colors should be a valid strings. Learn more about it on [official React Native documentation](https://reactnative.dev/docs/colors).
+:::info
+Learn more about default theme properties at [here](useTheme#default-theme-properties).
 :::

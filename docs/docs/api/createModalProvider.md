@@ -1,8 +1,6 @@
 # `createModalProvider`
 
-Returns [ModalProvider](./ModalProvider)
-
-## Example
+Creates [ModalProvider](./ModalProvider) - a wrapper react component for your app with needed components.
 
 ```js
 import { createModalProvider, Alert, Menu, scale } from 'react-native-unicorn-modals';
@@ -36,8 +34,17 @@ Simple object where key is a string which will be used to show component and val
 
 This function should return styles object for `Animated.View` based on `progressValue` (first argument of function).
 
-Learn more at [animations guide](../guides/animations).
+```js
+function customWorklet(progressValue) {
+  'worklet';
+  return { opacity: progressValue };
+}
+```
 
-:::tip
-Learn more about React Native Reanimated worklet functions on [official documentation](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/worklets/)
+:::info
+Learn more about animations [here](../guides/animations).
+:::
+
+:::info
+Learn more about **React Native Reanimated** worklet functions on [official documentation](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/worklets/).
 :::

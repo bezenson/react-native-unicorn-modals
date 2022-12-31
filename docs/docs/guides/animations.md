@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Animations
 
+You can pick one of ready to use animations from library or implement your own.
+
 ## Internal animations
 
 | **`fade`** | **`scale`** | **`slideUp`** (default) |
@@ -39,7 +41,7 @@ Just create reanimated worklet function. You have an access to animation progres
 import { interpolate } from 'react-native-reanimated';
 
 // highlight-start
-export function scaleDown(value) {
+function scaleDown(value) {
   'worklet';
   return {
     opacity: value,
@@ -54,3 +56,7 @@ const ModalProvider = createModalProvider(
   { animationWorklet: scaleDown },
 );
 ```
+
+**Result:**
+
+![scaleDown](../../static/img/animation-demo/custom-scaleDown.gif)

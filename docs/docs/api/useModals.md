@@ -1,6 +1,6 @@
 # `useModals`
 
-## Example
+Using this hook you can get access to imperative API of the library.
 
 ```js
 const Example = () => {

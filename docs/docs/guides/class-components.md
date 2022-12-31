@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Class components
 
-Library provides a hook, but what if you need to open modal in class component? Just wrap your class component in a function component to use the hook:
+Library provides a hook. But what if you need to open modal in class component? Just wrap your class component in a function component to use the hook:
 
 ```js
 class MyButton extends React.Component {
