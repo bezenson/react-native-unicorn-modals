@@ -1,6 +1,6 @@
 import type { DefaultTheme } from '../types';
 
-const defaultLightTheme: DefaultTheme = {
+const defaultThemeLight: DefaultTheme = {
   actionButtonColor: {
     cancel: '#666',
     default: '#4695eb',
@@ -12,4 +12,4 @@ const defaultLightTheme: DefaultTheme = {
   titleTextColor: '#000',
 };
 
-export default defaultLightTheme;
+export default defaultThemeLight;

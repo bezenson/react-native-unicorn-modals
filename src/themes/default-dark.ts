@@ -1,6 +1,6 @@
 import type { DefaultTheme } from '../types';
 
-const defaultDarkTheme: DefaultTheme = {
+const defaultThemeDark: DefaultTheme = {
   actionButtonColor: {
     cancel: '#888',
     default: '#4695eb',
@@ -12,4 +12,4 @@ const defaultDarkTheme: DefaultTheme = {
   titleTextColor: '#fff',
 };
 
-export default defaultDarkTheme;
+export default defaultThemeDark;
