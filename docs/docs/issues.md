@@ -5,8 +5,5 @@ sidebar_position: 20
 # Issues
 
 :::info
-Any problems?
-
-- [Create an issue](https://github.com/inferusvv/react-native-unicorn-modals/issues) on GitHub.
-- Fix it and create merge request 💪
+If you found a problem you can [Create an issue](https://github.com/inferusvv/react-native-unicorn-modals/issues) on GitHub or fork repository, fix and create a merge request 💪
 :::

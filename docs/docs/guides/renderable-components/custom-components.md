@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Custom components
 
-You can easily create custom components.
+Create your own modal component to use in library.
 
 4 main things you should know:
 
@@ -40,6 +40,17 @@ const CustomModal = ({ WrapperComponent }) => {
 
 export default CustomModal;
 ```
+
+:::caution
+Second argument is not an `onPress` handler by itself. It returns callback function. It means that to close modal you should invoke returned function:
+
+```js
+const hideModal = actionCallback();
+hideModal();
+// or
+actionCallback()();
+```
+:::
 
 ## Register your component
 
@@ -80,4 +91,4 @@ export default Example;
 
 **Result:**
 
-![Custom Component](../../static/img/custom-modal.gif)
+![Custom Component](../../../static/img/custom-modal.gif)

@@ -26,5 +26,5 @@ All colors should be a valid strings. Learn more about it on [official React Nat
 :::
 
 :::tip
-You can add your own theme properties. Learn more [here](../guides/themes#change-and-extend-themes).
+You can add your own theme properties. Learn more [here](../guides/themes.md#change-and-extend-themes).
 :::

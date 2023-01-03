@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Quick Start
@@ -60,18 +60,14 @@ export const HomePage = () => {
   const openAlert = () => {
     // 3. Call `show` function from hook
     // highlight-start
-    modal.show(
-      'alert',
-      {
-        title: 'Title',
-        description: 'Description goes here.',
-        buttons: [{
-          onPress: () => console.log('Confirm pressed'),
-          text: 'Confirm',
-        }],
-      },
-      { cancellable: false },
-    );
+    modal.show('alert', {
+      title: 'Title',
+      description: 'Description goes here.',
+      buttons: [{
+        onPress: () => console.log('Confirm pressed'),
+        text: 'Confirm',
+      }],
+    });
     // highlight-end
   };
 
@@ -88,3 +84,34 @@ export const HomePage = () => {
 1. `'alert'` is a key of registered component. It accepts only keys which was provided into `createModalProvider` function.
 2. Second argument is a data object which is passed into component. It is specific for every component.
 3. Last arguments is an options object. You can learn more about options [here](./api/useModals.md).
+
+### Non cancellable
+
+If you want to make your modal impossible to dismiss by pressing outside or via Back button on android, you simply should add `cancellable: false` option to 3rd argument of `show` function.
+
+```js title=src/screens/HomePage.js
+
+export const HomePage = () => {
+  // ...
+  const openAlert = () => {
+    modal.show(
+      'alert',
+      {
+        title: 'Title',
+        description: 'Description goes here.',
+        buttons: [{
+          onPress: () => console.log('Confirm pressed'),
+          text: 'Confirm',
+        }],
+      },
+      // add-next-line
+      { cancellable: false },
+    );
+  };
+  // ...
+};
+```
+
+:::tip
+There are not only `Alert` provided by library. Learn more about other renderable components [here](../category/renderable-components).
+:::

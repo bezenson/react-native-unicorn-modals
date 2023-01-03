@@ -1,6 +1,6 @@
 # `createModalProvider`
 
-Creates [ModalProvider](./ModalProvider) - a wrapper react component for your app with needed components.
+Creates [`ModalProvider`](./ModalProvider.md) - a wrapper react component for your app with needed components.
 
 ```js
 import { createModalProvider, Alert, Menu, scale } from 'react-native-unicorn-modals';
@@ -42,7 +42,7 @@ function customWorklet(progressValue) {
 ```
 
 :::info
-Learn more about animations [here](../guides/animations).
+Learn more about animations [here](../guides/animations.md).
 :::
 
 :::info

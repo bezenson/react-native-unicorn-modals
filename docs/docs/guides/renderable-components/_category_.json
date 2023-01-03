@@ -1,0 +1,10 @@
+{
+  "label": "Renderable components",
+  "position": 1,
+  "link": {
+    "type": "generated-index"
+  },
+  "customProps": {
+    "description": "This description can be used in the swizzled DocCard"
+  }
+}

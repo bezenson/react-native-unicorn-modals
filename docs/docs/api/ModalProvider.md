@@ -1,6 +1,6 @@
 # `ModalProvider`
 
-`ModalProvider` is a React Component which is returned by [`createModalProvider`](./createModalProvider) call. Normally this component should wrap your application.
+`ModalProvider` is a React Component which is returned by [`createModalProvider`](./createModalProvider.md) call. Normally this component should wrap your application.
 
 ```js
 const ModalProvider = createModalProvider({ /* ... */ });
@@ -17,5 +17,5 @@ const ModalProvider = createModalProvider({ /* ... */ });
 ```
 
 :::info
-Learn more about default theme properties at [here](useTheme#default-theme-properties).
+Learn more about default theme properties at [here](useTheme.md#default-theme-properties).
 :::

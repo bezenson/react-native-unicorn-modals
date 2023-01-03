@@ -32,7 +32,11 @@ const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
 
   const onOpenMenuPress = () => {
     modal.show('menu', {
-      items: [...new Array(5)].map((_item, index) => ({ text: `Item ${index + 1}` })),
+      items: [
+        { text: 'Default variant' },
+        { text: 'Cancel variant', variant: 'cancel' },
+        { text: 'Destructive variant', variant: 'destructive' },
+      ],
     });
   };
 
