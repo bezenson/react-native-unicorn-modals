@@ -1,5 +1,5 @@
 import type { ActionsType, ReducerState, RenderItemOptions } from '../types';
-import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_COMPONENT } from './action-types';
+import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_MODAL } from './action-types';
 
 export const initialState: ReducerState = {
   renderList: [],
@@ -14,7 +14,7 @@ function mergeOptionsWithDefault(options = {}): RenderItemOptions {
 
 export function reducer(state: ReducerState, action: ActionsType): ReducerState {
   switch (action.type) {
-    case SHOW_COMPONENT: {
+    case SHOW_MODAL: {
       return {
         ...state,
         renderList: [

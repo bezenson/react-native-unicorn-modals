@@ -8,14 +8,14 @@ import { useAlertAnimatedStyle } from '../hooks/useAlertAnimatedStyle';
 import { useModalsContext } from '../hooks/useModalsContext';
 import { hideAnimationFinished, hideAnimationStart } from '../state/action-creators';
 import AvoidDismiss from './AvoidDismiss';
-import type { CreateActionCallback } from '../types';
+import type { ComponentName, CreateActionCallback, RegisteredComponents } from '../types';
 
-export interface WrapperComponentProps<D extends unknown, E extends unknown> {
-  children: (data: D, createActionCallback: CreateActionCallback<E>) => ReactNode;
+export interface WrapperComponentProps<E extends unknown = unknown> {
+  children: (data: RegisteredComponents[ComponentName], createActionCallback: CreateActionCallback<E>) => ReactNode;
   style?: ViewStyle;
 }
 
-function WrapperComponent<D, E = unknown>({ children, style }: WrapperComponentProps<D, E>) {
+function WrapperComponent<E = unknown>({ children, style }: WrapperComponentProps<E>) {
   const { dispatch, options, state } = useModalsContext();
 
   const wrapperStyle = useAlertAnimatedStyle(!!state.renderList[0]?.visible, options, () =>

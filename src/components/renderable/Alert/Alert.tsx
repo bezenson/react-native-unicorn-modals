@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import type { GestureResponderEvent } from 'react-native';
 
-import type { AlertData, RenderableComponent } from '../../../types';
+import type { RenderableComponent } from '../../../types';
 
 import Box from '../common/Box';
 
@@ -10,7 +10,7 @@ import AlertFooter from './AlertFooter';
 import styles from './Alert.styles';
 import { useTheme } from '../../../hooks/useTheme';
 
-const Alert: RenderableComponent<AlertData, GestureResponderEvent> = ({ WrapperComponent }) => {
+const Alert: RenderableComponent<'alert', GestureResponderEvent> = ({ WrapperComponent }) => {
   const theme = useTheme();
 
   return (

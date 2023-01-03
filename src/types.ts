@@ -5,6 +5,16 @@ import type { AnimatedStyleProp } from 'react-native-reanimated';
 
 import type * as actionCreators from './state/action-creators';
 
+// === Common === //
+/**
+ * Extend it in your global.d.ts file.
+ * Interface key is a component name (1st argument of `show` function)
+ * Interface value is a component data interface (2nd argument of `show` function)
+ */
+export interface RegisteredComponents {}
+
+export type ComponentName = keyof RegisteredComponents;
+
 // === Themes === //
 export interface DefaultTheme {
   actionButtonColor: {
@@ -46,18 +56,22 @@ export interface ModalProviderOptions {
 export type CreateModalProviderOptions = Partial<ModalProviderOptions>;
 
 // === WrapperComponent === //
+export type ChildrenData<K extends ComponentName> = RegisteredComponents[K];
+
 export type ActionCallback = Function | undefined;
 export type CreateActionCallback<E extends unknown = any> = (fn?: ActionCallback) => (arg: E) => void;
 
-export type WrapperComponentT<D, E> = React.FC<{
-  children: (data: D, createActionCallback: CreateActionCallback<E>) => ReactNode;
+export type WrapperComponentT<K extends ComponentName, E> = React.FC<{
+  children: (data: ChildrenData<K>, createActionCallback: CreateActionCallback<E>) => ReactNode;
   style?: ViewStyle;
 }>;
 
-export interface RenderableComponentProps<D = any, E extends unknown = any> {
-  WrapperComponent: WrapperComponentT<D, E>;
+export interface RenderableComponentProps<K extends ComponentName = any, E extends {} = any> {
+  WrapperComponent: WrapperComponentT<K, E>;
 }
-export type RenderableComponent<D = any, E extends {} = any> = React.FC<RenderableComponentProps<D, E>>;
+export type RenderableComponent<K extends ComponentName = any, E extends {} = any> = React.FC<
+  RenderableComponentProps<K, E>
+>;
 
 export type ComponentsConfig<C extends RegisteredComponents = RegisteredComponents> = {
   [key in keyof C]: React.FC<RenderableComponentProps>;
@@ -71,10 +85,9 @@ export interface RenderItemOptions {
   cancelable: boolean;
 }
 export type ShowRenderItemOptions = Partial<RenderItemOptions>;
-// TODO: Fix any
-export interface RenderItem<T = any> {
-  componentName: string;
-  data: T;
+export interface RenderItem {
+  componentName: ComponentName;
+  data: RegisteredComponents[ComponentName];
   options: RenderItemOptions;
   visible: boolean;
 }
@@ -89,15 +102,13 @@ export interface ContextType {
 }
 
 // === Hooks === //
-export interface RegisteredComponents {}
-
-export type ShowModal<RC extends RegisteredComponents> = <K extends keyof RC>(
+export type ShowModal = <K extends ComponentName>(
   componentName: K,
-  data: RC[K],
+  data: RegisteredComponents[K],
   options?: ShowRenderItemOptions,
 ) => void;
-export interface UseModalsReturn<RC extends RegisteredComponents> {
-  show: ShowModal<RC>;
+export interface UseModalsReturn {
+  show: ShowModal;
 }
 
 // === Predefined components === //

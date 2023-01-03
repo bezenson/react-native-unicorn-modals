@@ -6,10 +6,10 @@ import Box from '../common/Box';
 import MenuItem from './MenuItem';
 import styles from './Menu.styles';
 
-import type { MenuData, RenderableComponent } from '../../../types';
+import type { RenderableComponent } from '../../../types';
 import { useTheme } from '../../../hooks/useTheme';
 
-const Menu: RenderableComponent<MenuData, GestureResponderEvent> = ({ WrapperComponent }) => {
+const Menu: RenderableComponent<'menu', GestureResponderEvent> = ({ WrapperComponent }) => {
   const theme = useTheme();
   return (
     <WrapperComponent style={styles.wrapper}>

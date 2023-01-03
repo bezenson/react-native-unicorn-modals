@@ -1,15 +1,15 @@
 import { useCallback } from 'react';
 
-import { showComponent } from '../state/action-creators';
+import { showModal } from '../state/action-creators';
 import { useModalsContext } from './useModalsContext';
-import type { RegisteredComponents, ShowModal, UseModalsReturn } from '../types';
+import type { ComponentName, RegisteredComponents, ShowRenderItemOptions, UseModalsReturn } from '../types';
 
-export function useModals<RC extends RegisteredComponents = RegisteredComponents>(): UseModalsReturn<RC> {
+export function useModals(): UseModalsReturn {
   const { dispatch } = useModalsContext();
 
-  const show = useCallback<ShowModal<RC>>(
-    (type, data, options) => {
-      dispatch(showComponent(type, data, options));
+  const show = useCallback(
+    <K extends ComponentName>(type: K, data: RegisteredComponents[K], options?: ShowRenderItemOptions) => {
+      dispatch(showModal(type, data, options));
     },
     [dispatch],
   );

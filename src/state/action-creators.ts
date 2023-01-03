@@ -1,16 +1,18 @@
-import type { ShowRenderItemOptions } from '../types';
-import { HIDE_ANIMATION_FINISHED, SHOW_COMPONENT, HIDE_ANIMATION_START } from './action-types';
+import type { ComponentName, RegisteredComponents, ShowRenderItemOptions } from '../types';
+import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_MODAL } from './action-types';
 
-// TODO: componentName type should be one of registered components
-// TODO: data should equal to registered component props type
 /**
  * Show component with passed data
  * @param componentName Registered component name
  * @param data Props to pass into component
  */
-export const showComponent = (componentName: any, data: any, options?: ShowRenderItemOptions) => {
+export const showModal = <K extends ComponentName>(
+  componentName: K,
+  data: RegisteredComponents[K],
+  options?: ShowRenderItemOptions,
+) => {
   return {
-    type: SHOW_COMPONENT,
+    type: SHOW_MODAL,
     payload: {
       componentName,
       data,

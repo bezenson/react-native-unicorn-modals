@@ -19,7 +19,7 @@ npm install react-native-unicorn-modals
 ## 2. Add Provider into root component
 
 ```js title=src/App.js
-// 1. Import initializer function and predefined component
+// 1. Import initializer function and one of renderable component
 // highlight-next-line
 import { createModalProvider, Alert } from 'react-native-unicorn-modals';
 import { HomePage } from './screens/HomePage.js';
