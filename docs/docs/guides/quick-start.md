@@ -83,7 +83,7 @@ export const HomePage = () => {
 
 1. `'alert'` is a key of registered component. It accepts only keys which was provided into `createModalProvider` function.
 2. Second argument is a data object which is passed into component. It is specific for every component.
-3. Last arguments is an options object. You can learn more about options [here](./api/useModals.md).
+3. Last arguments is an options object. You can learn more about options [here](../api/useModals.md).
 
 ### Non cancellable
 
