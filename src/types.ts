@@ -56,22 +56,18 @@ export interface ModalProviderOptions {
 export type CreateModalProviderOptions = Partial<ModalProviderOptions>;
 
 // === WrapperComponent === //
-export type ChildrenData<K extends ComponentName> = RegisteredComponents[K];
-
 export type ActionCallback = Function | undefined;
 export type CreateActionCallback<E extends unknown = any> = (fn?: ActionCallback) => (arg: E) => void;
 
-export type WrapperComponentT<K extends ComponentName, E> = React.FC<{
-  children: (data: ChildrenData<K>, createActionCallback: CreateActionCallback<E>) => ReactNode;
+export type WrapperComponentT<D, E> = React.FC<{
+  children: (data: D, createActionCallback: CreateActionCallback<E>) => ReactNode;
   style?: ViewStyle;
 }>;
 
-export interface RenderableComponentProps<K extends ComponentName = any, E extends {} = any> {
-  WrapperComponent: WrapperComponentT<K, E>;
+export interface RenderableComponentProps<D = any, E extends {} = any> {
+  WrapperComponent: WrapperComponentT<D, E>;
 }
-export type RenderableComponent<K extends ComponentName = any, E extends {} = any> = React.FC<
-  RenderableComponentProps<K, E>
->;
+export type RenderableComponent<D, E extends {} = any> = React.FC<RenderableComponentProps<D, E>>;
 
 export type ComponentsConfig<C extends RegisteredComponents = RegisteredComponents> = {
   [key in keyof C]: React.FC<RenderableComponentProps>;
@@ -86,8 +82,8 @@ export interface RenderItemOptions {
 }
 export type ShowRenderItemOptions = Partial<RenderItemOptions>;
 export interface RenderItem {
-  componentName: ComponentName;
-  data: RegisteredComponents[ComponentName];
+  componentName: ComponentName | string;
+  data: RegisteredComponents[ComponentName] | any;
   options: RenderItemOptions;
   visible: boolean;
 }

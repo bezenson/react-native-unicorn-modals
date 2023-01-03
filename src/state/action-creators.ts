@@ -7,8 +7,8 @@ import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_MODAL } from './act
  * @param data Props to pass into component
  */
 export const showModal = <K extends ComponentName>(
-  componentName: K,
-  data: RegisteredComponents[K],
+  componentName: K | string,
+  data: RegisteredComponents[K] | any,
   options?: ShowRenderItemOptions,
 ) => {
   return {

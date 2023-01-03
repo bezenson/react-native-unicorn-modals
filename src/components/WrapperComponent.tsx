@@ -11,7 +11,10 @@ import AvoidDismiss from './AvoidDismiss';
 import type { ComponentName, CreateActionCallback, RegisteredComponents } from '../types';
 
 export interface WrapperComponentProps<E extends unknown = unknown> {
-  children: (data: RegisteredComponents[ComponentName], createActionCallback: CreateActionCallback<E>) => ReactNode;
+  children: (
+    data: RegisteredComponents[ComponentName] | any,
+    createActionCallback: CreateActionCallback<E>,
+  ) => ReactNode;
   style?: ViewStyle;
 }
 
