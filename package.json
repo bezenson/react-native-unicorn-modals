@@ -1,6 +1,6 @@
 {
   "name": "react-native-unicorn-modals",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Custom modals with Imperative API for Expo and React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
