@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import type { AppTheme } from 'react-native-unicorn-modals';
 import { createModalProvider, Alert, Menu, defaultThemeDark, defaultThemeLight } from 'react-native-unicorn-modals';
 
 import CustomModal from './components/CustomModal';
 import Example from './components/Example';
+
+import type { AppTheme } from './types';
 
 const lightTheme: AppTheme = {
   ...defaultThemeLight,

@@ -1,16 +1,16 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import { useModals } from 'react-native-unicorn-modals';
 
 import Tile from './Tile';
 import styles from './Example.styles';
+import useAppModals from '../hooks/useAppModals';
 
 interface ExampleProps {
   darkMode: boolean;
   switchTheme: () => void;
 }
 const Example: React.FC<ExampleProps> = ({ darkMode, switchTheme }) => {
-  const modal = useModals();
+  const modal = useAppModals();
 
   function createModalHandler(cancelable: boolean = true) {
     return () => {

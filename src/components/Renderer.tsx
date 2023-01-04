@@ -5,12 +5,12 @@ import WrapperComponent from './WrapperComponent';
 
 import { hideAnimationStart } from '../state/action-creators';
 
-import type { Dispatch, ReducerState } from '../types';
+import type { ComponentName, Dispatch, ReducerState } from '../types';
 
 interface RendererProps {
-  // TODO: Remove any
+  // TODO: Fix any
   components: {
-    [k: string]: any;
+    [k: ComponentName]: React.FC<{ WrapperComponent: React.FC<any> }>;
   };
   dispatch: Dispatch;
   state: ReducerState;

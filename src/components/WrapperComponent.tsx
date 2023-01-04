@@ -8,13 +8,10 @@ import { useAlertAnimatedStyle } from '../hooks/useAlertAnimatedStyle';
 import { useModalsContext } from '../hooks/useModalsContext';
 import { hideAnimationFinished, hideAnimationStart } from '../state/action-creators';
 import AvoidDismiss from './AvoidDismiss';
-import type { ComponentName, CreateActionCallback, RegisteredComponents } from '../types';
+import type { CreateActionCallback } from '../types';
 
 export interface WrapperComponentProps<E extends unknown = unknown> {
-  children: (
-    data: RegisteredComponents[ComponentName] | any,
-    createActionCallback: CreateActionCallback<E>,
-  ) => ReactNode;
+  children: (data: unknown, createActionCallback: CreateActionCallback<E>) => ReactNode;
   style?: ViewStyle;
 }
 

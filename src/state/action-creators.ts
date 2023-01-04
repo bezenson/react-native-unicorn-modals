@@ -1,4 +1,4 @@
-import type { ComponentName, RegisteredComponents, ShowRenderItemOptions } from '../types';
+import type { ComponentName, ShowRenderItemOptions } from '../types';
 import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_MODAL } from './action-types';
 
 /**
@@ -6,11 +6,7 @@ import { HIDE_ANIMATION_FINISHED, HIDE_ANIMATION_START, SHOW_MODAL } from './act
  * @param componentName Registered component name
  * @param data Props to pass into component
  */
-export const showModal = <K extends ComponentName>(
-  componentName: K | string,
-  data: RegisteredComponents[K] | any,
-  options?: ShowRenderItemOptions,
-) => {
+export const showModal = (componentName: ComponentName, data: unknown, options?: ShowRenderItemOptions) => {
   return {
     type: SHOW_MODAL,
     payload: {

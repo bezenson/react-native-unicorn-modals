@@ -13,7 +13,7 @@ import type * as actionCreators from './state/action-creators';
  */
 export interface RegisteredComponents {}
 
-export type ComponentName = keyof RegisteredComponents;
+export type ComponentName = string | number | symbol;
 
 // === Themes === //
 export interface DefaultTheme {
@@ -82,8 +82,8 @@ export interface RenderItemOptions {
 }
 export type ShowRenderItemOptions = Partial<RenderItemOptions>;
 export interface RenderItem {
-  componentName: ComponentName | string;
-  data: RegisteredComponents[ComponentName] | any;
+  componentName: ComponentName;
+  data: unknown;
   options: RenderItemOptions;
   visible: boolean;
 }
@@ -98,16 +98,16 @@ export interface ContextType {
 }
 
 // === Hooks === //
-export type ShowModal = <K extends ComponentName>(
+export type UseModalsShow<RC> = <K extends keyof RC>(
   componentName: K,
-  data: RegisteredComponents[K],
+  data: RC[K],
   options?: ShowRenderItemOptions,
 ) => void;
-export interface UseModalsReturn {
-  show: ShowModal;
+export interface UseModalsReturn<RC extends Object> {
+  show: UseModalsShow<RC>;
 }
 
-// === Predefined components === //
+// === Renderable components === //
 export type ActionButtonVariant = 'default' | 'destructive' | 'cancel';
 
 // Alert

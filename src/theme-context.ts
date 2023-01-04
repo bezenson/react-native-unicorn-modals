@@ -2,6 +2,5 @@ import { createContext } from 'react';
 
 import defaultLightTheme from './themes/default-light';
 
-import type { Theme } from './types';
-
-export const ThemeContext = createContext<Theme>(defaultLightTheme);
+// TODO: Fix any
+export const ThemeContext = createContext<any>(defaultLightTheme);
