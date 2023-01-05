@@ -4,7 +4,7 @@ import { createModalProvider, Alert, Menu, defaultThemeDark, defaultThemeLight }
 import CustomModal from './components/CustomModal';
 import Example from './components/Example';
 
-import type { AppTheme } from './types';
+import type { AppTheme, UnicornModalsComponents } from './types';
 
 const lightTheme: AppTheme = {
   ...defaultThemeLight,
@@ -16,7 +16,7 @@ const darkTheme: AppTheme = {
   buttonColor: '#a537fd',
 };
 
-const Provider = createModalProvider(
+const Provider = createModalProvider<UnicornModalsComponents>(
   {
     alert: Alert,
     custom: CustomModal,

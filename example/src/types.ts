@@ -5,7 +5,7 @@ export interface CustomModalData {
   title: string;
 }
 
-export interface RegisteredComponents {
+export interface UnicornModalsComponents {
   alert: AlertData;
   custom: CustomModalData;
   menu: MenuData;

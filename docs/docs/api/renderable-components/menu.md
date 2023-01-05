@@ -33,7 +33,7 @@ Seconds argument of `show` function.
 | --- | --- | --- | --- | --- |
 | **onPress** | `Function` |  | | List item `onPress` handler. |
 | **text** | `string` | Yes |  | List item text. |
-| **variant** | [`MenuItemVariant`](#menuitemvariant) | | List item text color. |
+| **variant** | [`MenuItemVariant`](#menuitemvariant) | | `default` | List item text color. |
 
 ### `MenuItemVariant`
 
