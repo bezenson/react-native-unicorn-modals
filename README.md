@@ -1,5 +1,8 @@
 <h1 align="center">React Native Unicorn Modals 🦄</h1>
 
+[![Latest version](https://img.shields.io/npm/v/react-native-unicorn-modals)](https://www.npmjs.com/package/react-native-unicorn-modals)
+[![Build status](https://github.com/inferusvv/react-native-unicorn-modals/actions/workflows/ci.yml/badge.svg)](https://github.com/inferusvv/react-native-unicorn-modals/actions/workflows/ci.yml)
+
 Easy way to implement custom modals in your application via imperative API with TypeScript support. Alerts, Menus or anything you want.
 
 <p align="center">
