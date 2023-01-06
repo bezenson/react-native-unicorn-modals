@@ -7,13 +7,15 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #bb4df6;
+  --ifm-color-primary-dark: #af2ef4;
+  --ifm-color-primary-darker: #a91ff4;
+  --ifm-color-primary-darkest: #900bd7;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #bb4df6;
   --ifm-heading-color: #fff;
   --ifm-font-color-base-inverse: #fff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.2);

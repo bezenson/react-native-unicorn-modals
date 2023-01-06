@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import ButtonLink from '../src/components/ButtonLink';
+
 # Introduction
 
 :::caution
@@ -21,6 +23,12 @@ I had an idea to write a small library that would meet certain requirements:
 - **Components should not overlap each other**. Animations should be simple and smooth. The next modal window should not be shown until the previous one is closed and even more so cover it.
 - **An infinite number of components**. Just think of this library as a small framework. I did not want to limit developers to just Alert. There are two ready-to-use components in the library - Alert and Menu. However, you can implement any other own component.
 
+
+<p align="center">
+<ButtonLink to="https://snack.expo.dev/@inferusvv/react-native-unicorn-modals">Expo Snack Demo App</ButtonLink>
+</p>
+
 <p align="center">
 <img src="img/demo.gif" height="500" />
 </p>
+
