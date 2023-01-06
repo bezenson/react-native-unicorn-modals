@@ -28,7 +28,8 @@ Simple object where key is a string which will be used to show component and val
 | --- | --- | --- | --- |
 | **animationDuration** | `number` | `350` | Modal show/hide animation duration in milliseconds |
 | **animationWorklet** | `function` | `slideUp` | Reanimated worklet function |
-| **hardwareAccelerated** | `boolean` | `true` | React Native modal prop |
+| **hardwareAccelerated** | `boolean` | `true` | Force hardware acceleration for the underlying window. [Standard React Native prop](https://reactnative.dev/docs/modal#hardwareaccelerated-android). |
+| **statusBarTranslucent** | `boolean` | `true` | Determines whether your modal should go under the system statusbar. [Standard React Native prop](https://reactnative.dev/docs/modal#statusbartranslucent-android). |
 
 #### `animationWorklet`
 

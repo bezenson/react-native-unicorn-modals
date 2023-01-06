@@ -53,6 +53,11 @@ export interface ModalProviderOptions {
    * @default true
    */
   hardwareAccelerated: ModalProps['hardwareAccelerated'];
+  /**
+   * Determines whether your modal should go under the system statusbar.
+   * @default true
+   */
+  statusBarTranslucent: boolean;
 }
 export type CreateModalProviderOptions = Partial<ModalProviderOptions>;
 

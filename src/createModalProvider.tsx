@@ -24,6 +24,7 @@ function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
     animationDuration: 350,
     animationWorklet: slideUp,
     hardwareAccelerated: true,
+    statusBarTranslucent: true,
     ...options,
   };
 }
@@ -34,6 +35,7 @@ function mergeOptionsWithDefault(options = {}): ModalProviderOptions {
  * @param options.animationDuration Show/hide animation duration.
  * @param options.animationWorklet Animation function (worklet).
  * @param options.hardwareAccelerated Android specific option nested from React Native default Modal component.
+ * @param options.statusBarTranslucent Determines whether your modal should go under the system statusbar.
  * @returns React Provider Component
  */
 export function createModalProvider<C extends RegisteredComponents>(

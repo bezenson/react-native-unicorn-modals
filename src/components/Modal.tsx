@@ -35,7 +35,8 @@ const ModalWithOverlay: React.FC<PropsWithChildren<ModalWithOverlayProps>> = ({ 
       hardwareAccelerated={options.hardwareAccelerated}
       onRequestClose={onDismiss}
       supportedOrientations={supportedOrientations}
-      transparent={true}
+      statusBarTranslucent={options.statusBarTranslucent}
+      transparent
       visible={visible}
     >
       <ModalOverlay />
