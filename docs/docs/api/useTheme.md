@@ -8,6 +8,7 @@ Will return a theme object, passed to `ModalProvider` `theme` prop.
 | **actionButtonColor** | Object<[ActionButtonColor](#ActionButtonColor)> |  |
 | **cardBackgroundColor** | `string` | Background color of wrapper block |
 | **lineColor** | `string` | Menu separator |
+| **overlayBackgroundColor** | `string` | Overlay color over app when modal visible |
 | **textColor** | `string` | Text color (e.g. description in alert) |
 | **titleTextColor** | `string` | Alert title color |
 

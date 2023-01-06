@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+
+import { useTheme } from '../hooks/useTheme';
 import { useModalsContext } from '../hooks/useModalsContext';
 
 const styles = StyleSheet.create({
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     flex: 1,
   },
 });
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
  * Translucent overlay under displaying component
  */
 const ModalOverlay: React.FC = () => {
+  const theme = useTheme();
   const { options, state } = useModalsContext();
   const overlayOpacity = useSharedValue(0);
   const hidden = state.renderList.length <= 1 && state.renderList[0]?.visible === false;
@@ -29,7 +31,7 @@ const ModalOverlay: React.FC = () => {
     };
   });
 
-  return <Animated.View style={[styles.overlay, overlayStyle]} />;
+  return <Animated.View style={[styles.overlay, { backgroundColor: theme.overlayBackgroundColor }, overlayStyle]} />;
 };
 
 export default ModalOverlay;

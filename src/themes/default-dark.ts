@@ -8,6 +8,7 @@ const defaultThemeDark: DefaultTheme = {
   },
   cardBackgroundColor: '#111',
   lineColor: '#222',
+  overlayBackgroundColor: 'rgba(0, 0, 0, 0.8)',
   textColor: '#ddd',
   titleTextColor: '#fff',
 };

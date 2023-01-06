@@ -24,6 +24,7 @@ export interface DefaultTheme {
   };
   cardBackgroundColor: string;
   lineColor: string;
+  overlayBackgroundColor: string;
   textColor: string;
   titleTextColor: string;
 }
