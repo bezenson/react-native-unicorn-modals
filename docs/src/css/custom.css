@@ -62,3 +62,7 @@
   content: '+';
   color: #00ff00;
 }
+
+.hero .button.button--secondary.button--outline:not(.button--active):not(:hover) {
+  color: var(--ifm-heading-color);
+}
