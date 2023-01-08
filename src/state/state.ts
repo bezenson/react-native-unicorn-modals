@@ -5,7 +5,7 @@ export const initialState: ReducerState = {
   renderList: [],
 };
 
-function mergeOptionsWithDefault(options = {}): RenderItemOptions {
+export function mergeOptionsWithDefault(options = {}): RenderItemOptions {
   return {
     cancelable: true,
     ...options,
