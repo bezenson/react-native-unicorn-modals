@@ -80,7 +80,7 @@ export type ComponentsConfig<C extends RegisteredComponents = RegisteredComponen
 };
 
 // === State === //
-export type ActionsType = ReturnType<typeof actionCreators[keyof typeof actionCreators]>;
+export type ActionsType = ReturnType<(typeof actionCreators)[keyof typeof actionCreators]>;
 export type Dispatch = React.Dispatch<ActionsType>;
 
 export interface RenderItemOptions {
