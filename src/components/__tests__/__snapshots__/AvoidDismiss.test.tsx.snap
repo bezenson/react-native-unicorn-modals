@@ -13,7 +13,7 @@ exports[`AvoidDismiss should match snapshot 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "backgroundColor": "red",
       "opacity": 1,
     }
