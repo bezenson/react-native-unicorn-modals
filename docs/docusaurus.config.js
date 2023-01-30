@@ -42,6 +42,10 @@ const config = {
         // blog: {
         //   showReadingTime: true,
         // },
+        gtag: {
+          trackingID: 'G-8QPT6FBMKL',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
