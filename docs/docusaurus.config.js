@@ -34,6 +34,7 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        blog: false,
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
@@ -51,6 +52,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: 'MIZY22QYAP',
+        apiKey: 'fedaf2325776f617a48b153f3bb61fd1',
+        indexName: 'inferusvv',
+      },
       colorMode: {
         defaultMode: 'dark',
       },
