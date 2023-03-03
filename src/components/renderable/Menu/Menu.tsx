@@ -18,7 +18,12 @@ const Menu: RenderableComponent<MenuData, GestureResponderEvent> = ({ WrapperCom
           <ScrollView showsVerticalScrollIndicator={false}>
             {items.map((item, index) => (
               <Fragment key={item.text}>
-                <MenuItem key={item.text} onPress={createActionCallback()} theme={theme} variant={item.variant}>
+                <MenuItem
+                  key={item.text}
+                  onPress={createActionCallback(item.onPress)}
+                  theme={theme}
+                  variant={item.variant}
+                >
                   {item.text}
                 </MenuItem>
                 {index + 1 < items.length && <View style={[styles.separator, { backgroundColor: theme.lineColor }]} />}
